@@ -1,0 +1,12 @@
+[user]
+	email = skipcloudgibson@gmail.com
+	name = Skip Gibson
+[credential]
+	helper = osxkeychain
+[core]
+excludesfile = /Users/alangibson/.gitconfig
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = true
+[alias]
