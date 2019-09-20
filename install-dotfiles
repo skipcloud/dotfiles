@@ -1,0 +1,12 @@
+#!/bin/bash
+stow_dirs=( "bash" "brew" "irb" "pry" "tmux" "vim" "zsh" )
+
+if type stow >/dev/null; then
+  for i in "${stow_dirs[@]}"
+  do
+    stow $i
+  done
+else
+  echo "stow is not installed, please install and retry"
+fi
+  
