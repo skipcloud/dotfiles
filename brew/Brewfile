@@ -31,4 +31,5 @@ cask "postico"
 cask "spotify"
 cask "keepassxc"
 cask "docker"
+cask "transmission"
 
