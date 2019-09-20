@@ -42,6 +42,8 @@ export EDITOR=vim
 
 # Build PATH
 export PATH=/usr/local/opt/gettext/bin
+export PATH=$PATH:$HOME/.rbenv/plugins/ruby-build/bin
+export PATH=$PATH:$HOME/.rbenv/bin
 export PATH=$PATH:$HOME/bin:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
@@ -68,3 +70,6 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+eval "$(rbenv init -)"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

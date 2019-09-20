@@ -105,8 +105,3 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bashrc
 
-export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
