@@ -20,6 +20,7 @@ brew "vim"
 brew "zsh"
 brew "terraform"
 brew "npm"
+brew "gnupg"
 
 # install casks
 cask "alfred"
