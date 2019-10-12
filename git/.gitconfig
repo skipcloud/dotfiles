@@ -4,7 +4,7 @@
 [credential]
 	helper = osxkeychain
 [core]
-excludesfile = /Users/alangibson/.gitconfig
+excludesfile = ~/.gitconfig
 [branch]
 	autosetuprebase = always
 [pull]

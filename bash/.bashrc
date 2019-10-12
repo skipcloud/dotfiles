@@ -35,7 +35,7 @@ export deliveroo_gopath=$GOPATH/src/github.com/deliveroo
 
 # Misc
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
-export NVM_DIR=/Users/alangibson/.nvm
+export NVM_DIR=$HOME/.nvm
 export RI="--format ansi --width 70"
 export TERM=xterm-256color
 export EDITOR=vim
