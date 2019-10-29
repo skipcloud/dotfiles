@@ -186,13 +186,6 @@ fun! TrimWhiteSpace()
   call winrestview(l:save)
 endfun
 
-" Save session
-noremap <Leader>s :call SaveSession()<cr>
-
-fun! SaveSession()
-  execute 'mksession! ~/.vim/sessions/default.vim'
-endfun
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
   augroup vimStartup
