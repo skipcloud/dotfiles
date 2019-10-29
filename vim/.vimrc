@@ -117,14 +117,13 @@ else
 end
 
 " Go related
-set autowrite " save when calling make/next/etc
 let g:go_fmt_command = "goimports"
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
-" set list lcs=tab:\|\ 
+" let g:go_auto_type_info = 1 " show type info in status bar
 
 " Status bar
 set laststatus=2
@@ -204,7 +203,6 @@ if has("autocmd")
     " tab settings for Makefiles
     autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
-    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
     autocmd BufWritePre *.rb,*.tf,*.proto,*.go :call TrimWhiteSpace() 
     " ^N causes included files to be read which slows down
     " autocomplete a hell of a lot
@@ -218,6 +216,10 @@ if has("autocmd")
       \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
       \ |   exe "normal! g`\""
       \ | endif
+
+    " Go related
+    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+    autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
   augroup END
 endif " has("autocmd")
