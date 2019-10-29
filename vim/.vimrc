@@ -90,6 +90,7 @@ set ignorecase
 set smartcase
 set mouse=a
 set splitright " vertical split to the right
+set linebreak " wrap on whitespace
 
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
@@ -106,6 +107,7 @@ set directory^=$HOME/.vim/.swap//
 
 set undofile	" keep an undo file (undo changes after closing)
 set undodir^=$HOME/.vim/.undo//
+set autowrite " save when calling make/next/etc
 
 " fix mouse not working past 220th column and resizing splits
 if has("mouse_sgr")
