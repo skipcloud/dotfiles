@@ -1,5 +1,5 @@
 #!/bin/bash
-stow_dirs=( "bash" "brew" "irb" "pry" "tmux" "vim" "zsh" )
+stow_dirs=( "bash" "irb" "pry" "tmux" "vim" "zsh" )
 
 if type stow >/dev/null; then
   for i in "${stow_dirs[@]}"
