@@ -103,7 +103,7 @@ set backupcopy=auto " use rename-and-write-new method whenever safe
 set backupdir=$HOME/.vim/.backup//
 
 " set swapfile
-set directory^=$HOME/.vim/.swap//
+" set directory^=$HOME/.vim/.swap//
 
 set undofile	" keep an undo file (undo changes after closing)
 set undodir^=$HOME/.vim/.undo//
