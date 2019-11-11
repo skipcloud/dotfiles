@@ -8,3 +8,5 @@ excludesfile = ~/.gitconfig
 [pull]
 	rebase = true
 [alias]
+[url "git@github.com:"]
+	insteadOf = https://github.com/
