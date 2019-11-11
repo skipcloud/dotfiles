@@ -165,7 +165,6 @@ noremap \ ,
 
 " Remove highlights with leader + enter
 nmap <Leader><CR> :nohlsearch<cr>
-
 map <leader>q :NERDTreeToggle<CR>
 
 " Activate fuzzy search
