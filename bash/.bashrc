@@ -52,7 +52,7 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # common directories
 export code=$HOME/code
-export work=$HOME/work
+export practice=$HOME/practice
 export orderweb=$code/orderweb
 export corest=$deliveroo_gopath/co-restaurants 
 export checkout=$deliveroo_gopath/checkout 
