@@ -1,4 +1,5 @@
-
-
 eval "$(rbenv init -)"
-source ~/.bashrc
+
+if [ -e $HOME/.bashrc ]; then
+  source ~/.bashrc
+fi
