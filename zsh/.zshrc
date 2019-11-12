@@ -60,19 +60,16 @@ ZSH_THEME="minimal"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
-  go
   colored-man-pages
-  cp
   rails
   rake
   rbenv
   ruby
-  rvm
-  nvm
-  npm
-  node
+  tmux
   zsh_reload
 )
+
+export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
