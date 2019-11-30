@@ -121,22 +121,14 @@ end
 " Status bar
 set laststatus=2
 set statusline=
-" file name
-set statusline+=%.40F 
-" modified
-set statusline+=%2*%m%*
-" buffer number
-set statusline+=\ \-\ Buffer:\ %n
-
-set statusline+=%=
-" column
-set statusline+=\ %c
-" line number
-set statusline+=\ \-\ %l 
-" total lines
-set statusline+=\ \-\ %L 
-" percentage through file
-set statusline+=\ \-\ %p%%
+set statusline+=%.40F              " file name
+set statusline+=%2*%m%*            " modified
+set statusline+=\ \-\ Buffer:\ %n  " buffer number
+set statusline+=%=                 " buffer number
+set statusline+=\ %c               " column
+set statusline+=\ \-\ %l           " line number
+set statusline+=\ \-\ %L           " total lines
+set statusline+=\ \-\ %p%%         " percentage through file
 
 " Status bar colour
 highlight statusline ctermfg=white
