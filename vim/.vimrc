@@ -192,7 +192,7 @@ if has("autocmd")
     " tab settings for Makefiles
     autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
-    autocmd BufWritePre *.rb,*.tf,*.proto,*.go :call TrimWhiteSpace() 
+    autocmd BufWritePre *.rb,*.tf,*.proto,*.go,*.c :call TrimWhiteSpace()
     " ^N causes included files to be read which slows down
     " autocomplete a hell of a lot
     autocmd BufNewFile,BufRead *spec.rb setlocal complete-=i
