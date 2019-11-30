@@ -74,11 +74,11 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 # common directories
 export code=$HOME/code
 export practice=$HOME/practice
-export orderweb=$code/orderweb
+export orderweb=$code/roo/orderweb
 export corest=$deliveroo_gopath/co-restaurants 
 export checkout=$deliveroo_gopath/checkout 
-export go_sandbox=$GOPATH/src/sandbox
-export transport_models=$code/transport-models
+export gosandbox=$GOPATH/src/sandbox
+export transport_models=$code/roo/transport-models
 export mysite=$code/personal/skipcloud.github.io
 export dots=$HOME/dotfiles
 
