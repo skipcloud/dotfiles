@@ -8,5 +8,13 @@ excludesfile = ~/.gitconfig
 [pull]
 	rebase = true
 [alias]
+  # Remove any branches that have been merged to master
+	clean-branches = !git checkout master && \
+		git fetch --all -p &&\
+		git pull &&\
+		git branch --merge |\
+		grep -vE 'staging|master' |\
+		xargs git branch -d
+	ctags = !.git/hooks/ctags
 [url "git@github.com:"]
 	insteadOf = https://github.com/
