@@ -82,17 +82,17 @@ set autoindent	" always set autoindenting on
 
 set backspace=start,eol,indent " allow backspace to delete auto indent, newlines
 
-set history=200		" keep 200 lines of command line history
-set ruler		" show the cursor position all the time
+set history=200           " keep 200 lines of command line history
+set ruler                 " show the cursor position all the time
 set incsearch
-set hlsearch " Switch on highlighting the last used search pattern.
+set hlsearch              " Switch on highlighting the last used search pattern.
 set ignorecase
 set smartcase
 set mouse=a
-set splitright " vertical split to the right
-set linebreak " wrap on whitespace
-
+set splitright             " vertical split to the right
+set linebreak              " wrap on whitespace
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab
+
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 " remove scratch pad from autocomplete
 set completeopt-=preview
