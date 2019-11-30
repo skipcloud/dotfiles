@@ -41,8 +41,7 @@ alias gpsu='git push --set-upstream origin $(git_current_branch)'
 alias grbim='git rebase -i origin/master'
 alias gbdd='git branch -D $1'
 alias grbmfp='gco master; gl; gco -; grbm; gp -f;'
-alias clean-branches='git branch | egrep -v -e "master|staging" | xargs git branch -D'
-alias reset-staging="git checkout staging && git fetch && git reset origin/staging --hard;"
+alias grs="git fetch origin staging && gco staging && git reset origin/staging --hard && gco -"
 
 # Bundle
 alias be="bundle exec"
