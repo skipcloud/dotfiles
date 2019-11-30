@@ -150,8 +150,6 @@ highlight statusline ctermfg=white
 
 " Removing escape
 ino jj <esc>
-cno jj <c-c>
-vno v <esc>
 
 " ins-completion CTRL-X mappings
 :inoremap ^] ^X^]
@@ -169,12 +167,6 @@ map <leader>q :NERDTreeToggle<CR>
 
 " Activate fuzzy search
 map <C-p> :FZF<cr>
-
-" move between tabs
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
-map <C-t><left> :tabp<cr>
-map <C-t><right> :tabn<cr>
 
 " trim all whitespace
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
