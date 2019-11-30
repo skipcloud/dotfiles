@@ -18,3 +18,5 @@ excludesfile = ~/.gitconfig
 	ctags = !.git/hooks/ctags
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+[init]
+	templatedir = ~/.git_template
