@@ -151,6 +151,9 @@ ino jj <esc>
 :inoremap ^D ^X^D
 :inoremap ^L ^X^L
 
+" Activate fuzzy search
+map <C-p> :FZF<cr>
+
 " My leader key
 let mapleader=","
 noremap \ ,
@@ -158,9 +161,6 @@ noremap \ ,
 " Remove highlights with leader + enter
 nmap <Leader><CR> :nohlsearch<cr>
 map <leader>q :NERDTreeToggle<CR>
-
-" Activate fuzzy search
-map <C-p> :FZF<cr>
 
 " trim all whitespace
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
