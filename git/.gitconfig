@@ -20,3 +20,6 @@ excludesfile = ~/.gitconfig
 	insteadOf = https://github.com/
 [init]
 	templatedir = ~/.git_template
+[rebase]
+	autoSquash = true
+	autoStash = true
