@@ -116,15 +116,6 @@ else
     set ttymouse=xterm2
 end
 
-" Go related
-let g:go_fmt_command = "goimports"
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-" let g:go_auto_type_info = 1 " show type info in status bar
-
 " Status bar
 set laststatus=2
 set statusline=
@@ -147,6 +138,15 @@ set statusline+=\ \-\ %p%%
 
 " Status bar colour
 highlight statusline ctermfg=white
+
+" Go related
+let g:go_fmt_command = "goimports"
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+" let g:go_auto_type_info = 1 " show type info in status bar
 
 " Removing escape
 ino jj <esc>
