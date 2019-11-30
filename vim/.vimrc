@@ -91,6 +91,7 @@ set smartcase
 set mouse=a
 set splitright             " vertical split to the right
 set linebreak              " wrap on whitespace
+set clipboard=unnamedplus  " Ensure clipboard works on linux
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
