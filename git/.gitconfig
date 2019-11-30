@@ -23,3 +23,5 @@ excludesfile = ~/.gitconfig
 [rebase]
 	autoSquash = true
 	autoStash = true
+[merge]
+	tool = vimdiff
