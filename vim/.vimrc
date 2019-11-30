@@ -95,8 +95,6 @@ set clipboard=unnamedplus  " Ensure clipboard works on linux
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
-" remove scratch pad from autocomplete
-set completeopt-=preview
 
 set completeopt-=preview " remove scratch pad from autocomplete
 set complete+=kspell     " check dictionary when autocompete is used and spell is enabled 
