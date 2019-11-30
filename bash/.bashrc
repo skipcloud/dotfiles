@@ -1,3 +1,25 @@
+# roo() helps you access things you would've used 'go/'
+# for back when you used a Mac
+roo() {
+  firefox "http://go.roo.tools/$1"
+}
+
+# comic() opens a random comic in Firefox
+comic() {
+  urls=(
+    'https://c.xkcd.com/random/comic/'
+    'https://pbfcomics.com/random'
+    'https://www.buttersafe.com/random'
+    'http://www.jspowerhour.com/random-comic'
+  )
+  firefox $urls[(($RANDOM % ${#urls[@]}))]
+}
+
+# mypulls() opens a firefox tab on my github
+# pull request page
+mypulls() {
+  firefox https://github.com/pulls
+}
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
