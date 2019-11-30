@@ -158,11 +158,8 @@ map <C-p> :FZF<cr>
 let mapleader=","
 noremap \ ,
 
-" Remove highlights with leader + enter
 nmap <Leader><CR> :nohlsearch<cr>
 map <leader>q :NERDTreeToggle<CR>
-
-" trim all whitespace
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
 
 fun! TrimWhiteSpace()
