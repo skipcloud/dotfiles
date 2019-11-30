@@ -97,8 +97,11 @@ set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 " remove scratch pad from autocomplete
 set completeopt-=preview
 
-set writebackup " protect against crash-during-write 		
-set nobackup    " but do not persist backup after successful write
+set completeopt-=preview " remove scratch pad from autocomplete
+set complete+=kspell     " check dictionary when autocompete is used and spell is enabled 
+
+set writebackup     " protect against crash-during-write 		
+set nobackup        " but do not persist backup after successful write
 set backupcopy=auto " use rename-and-write-new method whenever safe
 set backupdir=$HOME/.vim/.backup//
 
@@ -183,6 +186,8 @@ if has("autocmd")
     au!
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
+
+    autocmd FileType gitcommit setlocal spell
 
     " tab settings for Makefiles
     autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
