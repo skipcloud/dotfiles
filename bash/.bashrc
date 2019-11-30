@@ -46,7 +46,7 @@ alias grs="git fetch origin staging && gco staging && git reset origin/staging -
 # Bundle
 alias be="bundle exec"
 alias bi='bundle install'
-alias st-server="bundle exec rails s"
+alias brs="bundle exec rails s"
 
 alias refresh-db='rake db:refresh; bundle exec rake team:restore[data/team/skip.yml]'
 
