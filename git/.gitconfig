@@ -25,3 +25,5 @@ excludesfile = ~/.gitconfig
 	autoStash = true
 [merge]
 	tool = vimdiff
+[mergetool]
+	keepBackup = false
