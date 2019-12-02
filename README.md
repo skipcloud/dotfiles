@@ -8,5 +8,4 @@ To install these files you will need `stow` installed, which can be installed th
 
 - Clone this repo into your home directory `git clone git@github.com:skipcloud/dotfiles $HOME/dotfiles`
 - Run `make install`
-- If needed run `make brew` to run the Brewfile
 

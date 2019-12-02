@@ -1,5 +1,6 @@
 #!/bin/bash
 stow_dirs=( "bash" "irb" "pry" "tmux" "vim" "zsh" )
+os=$(uname)
 
 if type stow >/dev/null; then
   for i in "${stow_dirs[@]}"
@@ -10,3 +11,6 @@ else
   echo "stow is not installed, please install and retry"
 fi
   
+if [ $os = "Darwin" ]; then
+  $(cd brew && brew install)
+fi
