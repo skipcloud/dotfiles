@@ -125,17 +125,18 @@ highlight LineNr ctermfg=white
 " Behaviour {{{2
 " General {{{3
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab " default tab behaviour
-set path+=**                                                " Set path to search recursively
-set autoindent                                              " always set autoindenting on
-set backspace=start,eol,indent                              " allow backspace to delete auto indent, newlines
-set history=200                                             " keep 200 lines of command line history
-set splitright                                              " vertical split to the right
-set linebreak                                               " wrap on whitespace
-set clipboard=unnamedplus                                   " Ensure clipboard works on linux
-set ignorecase                                              " ignore case in search patterns
-set smartcase                                               " override ignorecase if searching with capital letters
-set completeopt-=preview                                    " remove scratch pad from autocomplete
-set complete+=kspell                                        " check dictionary when autocompete is used and spell is enabled
+set path+=**                   " Set path to search recursively
+set autoindent                 " always set autoindenting on
+set backspace=start,eol,indent " allow backspace to delete auto indent, newlines
+set history=200                " keep 200 lines of command line history
+set splitright                 " vertical split to the right
+set linebreak                  " wrap on whitespace
+set clipboard=unnamedplus      " Ensure clipboard works on linux
+set ignorecase                 " ignore case in search patterns
+set smartcase                  " override ignorecase if searching with capital letters
+set completeopt-=preview       " remove scratch pad from autocomplete
+set complete+=kspell           " check dictionary when autocompete is used and spell is enabled
+set mouse=a                    " this is 'a' by default but for some reason needs set explicitly on my linux machine
 set dictionary=/usr/share/dict/words
 set spelllang=en
 
