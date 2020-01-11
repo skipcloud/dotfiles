@@ -2,7 +2,7 @@
 	email = skipcloudgibson@gmail.com
 	name = Skip Gibson
 [core]
-excludesfile = ~/.gitconfig
+	excludesfile = ~/.gitconfig
 [branch]
 	autosetuprebase = always
 [pull]
