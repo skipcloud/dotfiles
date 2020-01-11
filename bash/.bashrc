@@ -73,7 +73,7 @@ export deliveroo_gopath=$GOPATH/src/github.com/deliveroo
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 export NVM_DIR=$HOME/.nvm
 export RI="--format ansi --width 70"
-export TERM=xterm-256color
+# export TERM=xterm-256color
 export EDITOR=vim
 
 # Build PATH
@@ -84,14 +84,14 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
-export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
 
 # common directories
 export code=$HOME/code
 export practice=$HOME/practice
 export orderweb=$code/roo/orderweb
-export corest=$deliveroo_gopath/co-restaurants 
-export checkout=$deliveroo_gopath/checkout 
+export corest=$deliveroo_gopath/co-restaurants
+export consumersearch=$deliveroo_gopath/consumer-search-service
+export checkout=$deliveroo_gopath/checkout
 export gosandbox=$GOPATH/src/sandbox
 export transport_models=$code/roo/transport-models
 export mysite=$code/personal/skipcloud.github.io
