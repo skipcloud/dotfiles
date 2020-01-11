@@ -83,7 +83,7 @@ Plugin 'hashivim/vim-terraform'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-" Customisation {{{1
+" Options/Customisations {{{1
 " Appearance{{{2
 syntax on
 colorscheme tender
