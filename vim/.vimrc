@@ -89,6 +89,9 @@ syntax on
 colorscheme tender
 " colorscheme delek
 " colorscheme spacecamp_lite
+highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
+highlight VertSplit ctermfg=white
+
 set number   " line numbers
 " set relativenumber
 set showcmd   " show incomplete cmds down the bottom
