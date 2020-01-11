@@ -136,6 +136,8 @@ set ignorecase                                              " ignore case in sea
 set smartcase                                               " override ignorecase if searching with capital letters
 set completeopt-=preview                                    " remove scratch pad from autocomplete
 set complete+=kspell                                        " check dictionary when autocompete is used and spell is enabled
+set dictionary=/usr/share/dict/words
+set spelllang=en
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case " ripgrep settings
 
