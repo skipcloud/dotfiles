@@ -54,6 +54,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 
+Plugin 'tpope/vim-rails'
 " Fuzzy search
 Plugin 'junegunn/fzf'
 
