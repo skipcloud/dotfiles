@@ -14,7 +14,8 @@
 		git pull &&\
 		git branch --merge |\
 		grep -vE 'staging|master' |\
-		xargs git branch -d
+		xargs --no-run-if-empty git branch -d &&\
+		git checkout -
 	ctags = !.git/hooks/ctags
 [url "git@github.com:"]
 	insteadOf = https://github.com/
