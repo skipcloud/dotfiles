@@ -11,8 +11,16 @@ comic() {
     'https://pbfcomics.com/random'
     'https://www.buttersafe.com/random'
     'http://www.jspowerhour.com/random-comic'
+    'https://abstrusegoose.com/pseudorandom.php'
   )
   firefox $urls[(($RANDOM % ${#urls[@]}))]
+}
+
+# killslack() kills slack and all of the processes
+# it, for some reason, leaves running after closing
+# the application.
+killslack() {
+  pgrep slack | xargs --no-run-if-empty kill
 }
 
 # mypulls() opens a firefox tab on my github
@@ -20,6 +28,13 @@ comic() {
 mypulls() {
   firefox https://github.com/pulls
 }
+
+# define() looks for definitions
+define() {
+  IFS=+ firefox "https://duckduckgo.com/?q=define+$*"
+
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
