@@ -105,6 +105,11 @@ fi
 
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
+# set permissions
+umask 027
+
+# source oo the Go version manager
+# http://www.github.com/hit9/oo
 source "$HOME/src/oo/env"
 eval "$(rbenv init -)"
 
