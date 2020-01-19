@@ -16,6 +16,7 @@ endif
 " Plugins {{{1
 filetype off     " required for Vundle, re-enabled later
 call vundle#begin()
+Plugin 'fatih/vim-go'
 " colourschemes
 Plugin 'jaredgorski/spacecamp'
 Plugin 'jacoborus/tender.vim'
@@ -65,8 +66,6 @@ Plugin 'janko-m/vim-test'
 " indent markers
 Plugin 'Yggdroot/indentLine'
 
-Plugin 'fatih/vim-go'
-Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
 Plugin 'SirVer/ultisnips' " Go snippets
 
 " replace grep
@@ -163,6 +162,8 @@ let g:go_highlight_function_calls = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 " let g:go_auto_type_info = 1 " show type info in status bar
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 
 " Mappings {{{1
 
