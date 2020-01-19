@@ -8,7 +8,8 @@ if type stow >/dev/null; then
     stow $i
   done
 else
-  echo "stow is not installed, please install and retry"
+  echo "stow is not installed, please install and retry" >&2
+  exit 1
 fi
 
 if [ -d './git' ]; then
