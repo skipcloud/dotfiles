@@ -10,6 +10,16 @@ if type stow >/dev/null; then
 else
   echo "stow is not installed, please install and retry"
 fi
+
+if [ -d './git' ]; then
+  for file in $(ls -A git); do
+    if [ -f "$file" ]; then
+      ln -fs $(pwd)/git/$file $HOME/$file
+    elif [ -d "$file" ]
+      ln -fds $(pwd)/git/$file $HOME/$file
+    fi
+  done
+fi
   
 if [ $os = "Darwin" ]; then
   $(cd brew && brew install)
