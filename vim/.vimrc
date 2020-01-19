@@ -229,6 +229,9 @@ if has("autocmd")
     autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
     autocmd FileType sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+
+    autocmd BufWritePre *.tf :TerraformFmt
+
     augroup END
 endif " has("autocmd")
 
