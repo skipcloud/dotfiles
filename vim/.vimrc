@@ -228,6 +228,7 @@ if has("autocmd")
     " Autofold markdown files
     autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
+    autocmd FileType sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
     augroup END
 endif " has("autocmd")
 
