@@ -13,7 +13,7 @@ comic() {
     'http://www.jspowerhour.com/random-comic'
     'https://abstrusegoose.com/pseudorandom.php'
   )
-  firefox $urls[(($RANDOM % ${#urls[@]}))]
+  firefox $urls[((RANDOM % ${#urls[@]}))]
 }
 
 # killslack() kills slack and all of the processes
