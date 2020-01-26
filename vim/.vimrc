@@ -214,8 +214,6 @@ if has("autocmd")
     " autocomplete a hell of a lot
     autocmd BufNewFile,BufRead *spec.rb setlocal complete-=i
 
-    autocmd BufNewFile,Bufread *.md setlocal spell textwidth=80
-
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid, when inside an event handler
     " (happens when dropping a file on gvim) and for a commit message (it's
@@ -226,12 +224,9 @@ if has("autocmd")
       \ | endif
 
     " Go related
-    autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
     autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
     autocmd BufWritePost .vimrc source $MYVIMRC
-
-    autocmd BufNewFile,BufRead .gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8
 
     " Autofold markdown files
     autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
