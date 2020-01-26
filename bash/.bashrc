@@ -1,10 +1,10 @@
 # roo() helps you access things you would've used 'go/'
 # for back when you used a Mac
 roo() {
-  firefox "http://go.roo.tools/$1"
+  xdg-open "http://go.roo.tools/$1"
 }
 
-# comic() opens a random comic in Firefox
+# comic() opens a random comic in default browser
 comic() {
   urls=(
     'https://c.xkcd.com/random/comic/'
@@ -13,7 +13,7 @@ comic() {
     'http://www.jspowerhour.com/random-comic'
     'https://abstrusegoose.com/pseudorandom.php'
   )
-  firefox $urls[((RANDOM % ${#urls[@]}))]
+  xdg-open $urls[((RANDOM % ${#urls[@]}))]
 }
 
 # killslack() kills slack and all of the processes
@@ -23,15 +23,14 @@ killslack() {
   pgrep slack | xargs --no-run-if-empty kill
 }
 
-# mypulls() opens a firefox tab on my github
-# pull request page
+# mypulls() opens my github pull request page
 mypulls() {
-  firefox https://github.com/pulls
+  xdg-open https://github.com/pulls
 }
 
 # define() looks for definitions
 define() {
-  IFS=+ firefox "https://duckduckgo.com/?q=define+$*"
+  IFS=+ xdg-open "https://duckduckgo.com/?q=define+$*"
 
 }
 
