@@ -141,6 +141,15 @@ set spelllang=en
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case " ripgrep settings
 
+" Alt/Meta key mapping doesn't work on gnome terminal
+let c='a'
+while c <= 'z'
+  exec "set <A-".c.">=\e".c
+  exec "imap \e".c." <A-".c.">"
+  let c = nr2char(1+char2nr(c))
+endw
+
+set timeout ttimeoutlen=20
 " Backups/Swap/Undo/Other Directories {{{3
 set writebackup                    " protect against crash-during-write
 set nobackup                       " but do not persist backup after successful write
