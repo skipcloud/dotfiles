@@ -84,10 +84,10 @@ filetype plugin indent on    " required
 
 " Options/Customisations {{{1
 " Appearance{{{2
-syntax on
 colorscheme tender
 " colorscheme delek
 " colorscheme spacecamp_lite
+syntax on
 highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
 highlight VertSplit ctermfg=white
 
