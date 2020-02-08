@@ -1,9 +1,12 @@
 " vim:foldmethod=marker
 set nocompatible " be iMproved, required
 
-" set the runtime path to include Vundle and FZF
-set rtp+=~/.vim/bundle/Vundle.vim
-set rtp+=/usr/local/opt/fzf
+" Download vim-plug if it isn't installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 " The matchit plugin makes the % command work better, but it is not backwards
 " compatible.
@@ -14,73 +17,68 @@ if has('syntax') && has('eval')
 endif
 
 " Plugins {{{1
-filetype off     " required for Vundle, re-enabled later
-call vundle#begin()
-Plugin 'fatih/vim-go'
+call plug#begin('~/.vim/bundle')
+Plug 'fatih/vim-go'
 " colourschemes
-Plugin 'jaredgorski/spacecamp'
-Plugin 'jacoborus/tender.vim'
+Plug 'jaredgorski/spacecamp'
+Plug 'jacoborus/tender.vim'
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'jparise/vim-graphql'
-Plugin 'vim-ruby/vim-ruby'
+Plug 'jparise/vim-graphql'
+Plug 'vim-ruby/vim-ruby'
 " snipmate
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
 
 " split/join
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Optional:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Autogenerate pair ({[
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " Navigation tree
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree'
 
 " change surrounding brackets/quotes/parens etc
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " handy [ and ] mappings
-Plugin 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 " make vim-commentary and vim-surround work with .
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 " Commenting and uncommenting stuff
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 " Git wrapper
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 
-Plugin 'tpope/vim-rails'
+Plug 'tpope/vim-rails'
 " Fuzzy search
-Plugin 'junegunn/fzf'
+Plug 'junegunn/fzf'
 
 " Testing
-Plugin 'keith/rspec.vim'
-Plugin 'janko-m/vim-test'
+Plug 'keith/rspec.vim'
+Plug 'janko-m/vim-test'
 
 " indent markers
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
-Plugin 'SirVer/ultisnips' " Go snippets
+Plug 'SirVer/ultisnips' " Go snippets
 
 " replace grep
-Plugin 'jremmen/vim-ripgrep'
+Plug 'jremmen/vim-ripgrep'
 
 " markdown folding
-Plugin 'masukomi/vim-markdown-folding'
+Plug 'masukomi/vim-markdown-folding'
 
-Plugin 'godlygeek/tabular'
+Plug 'godlygeek/tabular'
 
-Plugin 'hashivim/vim-terraform'
+Plug 'hashivim/vim-terraform'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#end()
 
 " Options/Customisations {{{1
 " Appearance{{{2
@@ -140,6 +138,7 @@ set dictionary=/usr/share/dict/words
 set spelllang=en
 
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case " ripgrep settings
+set rtp+=/usr/local/opt/fzf                           " set the runtime path to include FZF
 
 " Alt/Meta key mapping doesn't work on gnome terminal
 let c='a'
