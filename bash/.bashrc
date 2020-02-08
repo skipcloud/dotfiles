@@ -47,11 +47,9 @@ alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
 alias st-zeus-log="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus --log .ZEUSLOG start"
-
 alias zt='zeus test'
 
 alias editbash='cp $HOME/.bashrc $HOME/.bashrc.bak; vim $HOME/.bashrc'
-alias editvim='cp $HOME/.vimrc $HOME/.vimrc.bak && vim $HOME/.vimrc'
 
 alias steal='$HOME/code/personal/page-thief/steal $1'
 
