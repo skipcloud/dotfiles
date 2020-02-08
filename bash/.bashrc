@@ -75,6 +75,7 @@ alias refresh-db='rake db:refresh; bundle exec rake team:restore[data/team/skip.
 
 # Go
 export GOPATH=$HOME/go
+export GOPRIVATE=github.com/deliveroo
 export deliveroo_gopath=$GOPATH/src/github.com/deliveroo
 
 # Misc
