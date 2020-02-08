@@ -1,5 +1,4 @@
 " vim:foldmethod=marker
-set nocompatible " be iMproved, required
 
 " Download vim-plug if it isn't installed
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -85,7 +84,6 @@ call plug#end()
 colorscheme tender
 " colorscheme delek
 " colorscheme spacecamp_lite
-syntax on
 highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
 highlight VertSplit ctermfg=white
 
