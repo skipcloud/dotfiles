@@ -34,6 +34,15 @@ define() {
 
 }
 
+cdr() {
+  local dir=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [ -z "$dir" ]; then
+    echo "top level git directory not found"
+    return 1
+  fi
+  cd $dir
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
