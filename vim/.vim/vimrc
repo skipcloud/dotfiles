@@ -1,5 +1,4 @@
-" vim:foldmethod=marker
-
+set nocompatible
 " Download vim-plug if it isn't installed
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -81,6 +80,7 @@ call plug#end()
 
 " Options/Customisations {{{1
 " Appearance{{{2
+
 colorscheme tender
 " colorscheme delek
 " colorscheme spacecamp_lite
@@ -103,6 +103,7 @@ else
     set ttymouse=xterm2
 end
 " Status bar {{{3
+
 set laststatus=2
 set statusline=
 set statusline+=%.40F             " file name
@@ -119,6 +120,7 @@ highlight LineNr ctermfg=white
 
 " Behaviour {{{2
 " General {{{3
+
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab " default tab behaviour
 set path+=**                   " Set path to search recursively
 set autoindent                 " always set autoindenting on
@@ -148,6 +150,7 @@ endw
 
 set timeout ttimeoutlen=20
 " Backups/Swap/Undo/Other Directories {{{3
+
 set writebackup                    " protect against crash-during-write
 set nobackup                       " but do not persist backup after successful write
 set backupcopy=auto                " use rename-and-write-new method whenever safe
@@ -235,4 +238,4 @@ if has("autocmd")
 
     augroup END
 endif " has("autocmd")
-
+" vim:foldmethod=marker
