@@ -188,14 +188,22 @@ map <C-p> :FZF<cr>
 nmap <Leader><CR> :nohlsearch<cr>
 map <leader>q :NERDTreeToggle<CR>
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
+nnoremap <Leader>d :call CreateYamlDate()<cr>
 
 " Functions {{{1
+" TrimWhiteSpace trims the whitespace from the ends of lines
 fun! TrimWhiteSpace()
   let l:save = winsaveview()
   keeppatterns %s/\s\+$//e
   call winrestview(l:save)
 endfun
 
+" CreateYamlDate is will replace the current line with the
+" date in rfc 3339 format. It is prepended with the yaml key "date:"
+fun! CreateYamlDate()
+  let l:date = system('date --rfc-3339=seconds')
+  let l:line = setline('.', 'date: ' . l:date)
+endfun
 " Autocmds {{{1
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
