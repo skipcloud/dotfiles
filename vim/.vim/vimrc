@@ -200,9 +200,11 @@ endfun
 
 " CreateYamlDate is will replace the current line with the
 " date in rfc 3339 format. It is prepended with the yaml key "date:"
+" l:date ends in a null character so remove it before setting
+" the line
 fun! CreateYamlDate()
   let l:date = system('date --rfc-3339=seconds')
-  let l:line = setline('.', 'date: ' . l:date)
+  let l:line = setline('.', 'date: ' . strpart(l:date, 0, strlen(l:date) - 1))
 endfun
 " Autocmds {{{1
 " Only do this part when compiled with support for autocommands.
