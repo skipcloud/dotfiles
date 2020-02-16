@@ -44,6 +44,13 @@ cdr() {
   cd $dir
 }
 
+# tinyprompt() sets PS1 to something compact for those
+# times when you don't have much room.
+tinyprompt() {
+  prompts=("> " "~ " "λ " "Δ ")
+  export PS1=${prompts[((RANDOM % ${#prompts[@]} + 1))]}
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
