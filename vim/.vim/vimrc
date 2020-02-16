@@ -190,6 +190,11 @@ map <leader>q :NERDTreeToggle<CR>
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
 nnoremap <Leader>d :call CreateYamlDate()<cr>
 
+" snippets
+" imap <C-j> <Plug>snipMateNextOrTrigger
+" smap <C-j> <Plug>snipMateNextOrTrigger
+imap <leader>s <Plug>snipMateShow
+
 " Functions {{{1
 " TrimWhiteSpace trims the whitespace from the ends of lines
 fun! TrimWhiteSpace()
