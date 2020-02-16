@@ -104,3 +104,5 @@ source $ZSH/oh-my-zsh.sh
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source ~/.bashrc
 
+# completion init
+compinit
