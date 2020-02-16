@@ -13,7 +13,7 @@ comic() {
     'http://www.jspowerhour.com/random-comic'
     'https://abstrusegoose.com/pseudorandom.php'
   )
-  xdg-open $urls[((RANDOM % ${#urls[@]}))]
+  xdg-open ${urls[((RANDOM % ${#urls[@]}))]}
 }
 
 # killslack() kills slack and all of the processes
@@ -34,6 +34,7 @@ define() {
 
 }
 
+# cdr navigates back to the root directory of a git project
 cdr() {
   local dir=$(git rev-parse --show-toplevel 2> /dev/null)
   if [ -z "$dir" ]; then
