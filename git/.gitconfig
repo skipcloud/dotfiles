@@ -17,6 +17,7 @@
 		xargs --no-run-if-empty git branch -d &&\
 		git checkout -
 	ctags = !.git/hooks/ctags
+	undo = reset HEAD^
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [init]
