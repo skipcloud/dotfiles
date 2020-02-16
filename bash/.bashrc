@@ -111,6 +111,7 @@ export transport_models=$code/roo/transport-models
 export mysite=$code/personal/skipcloud.github.io
 export dots=$HOME/dotfiles
 export coinfra=$code/roo/co-infrastructure
+export merchinfra=$code/roo/merch-algos-infrastructure
 
 ssh-add $HOME/.ssh/alan.gibson
 
