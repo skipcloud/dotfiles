@@ -115,16 +115,20 @@ export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 # common directories
+
+# personal
 export code=$HOME/code
-export practice=$HOME/practice
+export gosandbox=$GOPATH/src/sandbox
+export goskip=$GOPATH/src/github.com/skipcloud
+export mysite=$code/personal/skipcloud.github.io
+export dots=$HOME/dotfiles
+
+# deliveroo
 export orderweb=$code/roo/orderweb
 export corest=$deliveroo_gopath/co-restaurants
 export consumersearch=$deliveroo_gopath/consumer-search-service
-export checkout=$deliveroo_gopath/checkout
-export gosandbox=$GOPATH/src/sandbox
 export transport_models=$code/roo/transport-models
-export mysite=$code/personal/skipcloud.github.io
-export dots=$HOME/dotfiles
+export checkout=$deliveroo_gopath/checkout
 export coinfra=$code/roo/co-infrastructure
 export merchinfra=$code/roo/merch-algos-infrastructure
 
