@@ -135,20 +135,22 @@ export checkout=$deliveroo_gopath/checkout
 export coinfra=$code/roo/co-infrastructure
 export merchinfra=$code/roo/merch-algos-infrastructure
 
-ssh-add $HOME/.ssh/alan.gibson
+# add private key to key chain
+[ -e $HOME/.ssh/alan.gibson ] && ssh-add $HOME/.ssh/alan.gibson
 
 # load secrets
-if [ -d ~/secrets ]; then
-  source ~/secrets/.secretrc
-fi
+[ -d ~/secrets ] && source ~/secrets/.secretrc
 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# load nsm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # set permissions
 umask 027
 
 # source oo the Go version manager
 # http://www.github.com/hit9/oo
-source "$HOME/src/oo/env"
-eval "$(rbenv init -)"
+[ -d $HOME/src/oo ] && source "$HOME/src/oo/env"
+
+# Initialize rbenv
+[ type rbenv > /dev/null ] && eval "$(rbenv init -)"
 
