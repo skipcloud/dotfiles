@@ -61,6 +61,13 @@ git-delete-old-branches() {
   done
 }
 
+# weather() returns a weather forecast for current location
+# A location can be provided too, i.e. weather london
+weather() {
+  # https://github.com/chubin/wttr.in
+  curl wttr.in/$1
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
@@ -68,8 +75,6 @@ alias st-zeus-log="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus --log .ZEUSLOG s
 alias zt='zeus test'
 
 alias editbash='cp $HOME/.bashrc $HOME/.bashrc.bak; vim $HOME/.bashrc'
-
-alias steal='$HOME/code/personal/page-thief/steal $1'
 
 # Git
 alias gst="git status -sb"
