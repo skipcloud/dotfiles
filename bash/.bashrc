@@ -77,15 +77,18 @@ alias zt='zeus test'
 alias editbash='cp $HOME/.bashrc $HOME/.bashrc.bak; vim $HOME/.bashrc'
 
 # Git
-alias gst="git status -sb"
+# these could be put into .gitconfig but I prefer not
+# having to prefix the commands with `git ...`
+alias gbdd='git branch -D $1'
 alias gcs='git checkout staging'
-alias gmne='git merge --no-edit'
+alias gdc='git diff --cached'
 alias gfrbm='git fetch origin master && git checkout master && git pull && git checkout - && git rebase master'
+alias gmne='git merge --no-edit'
 alias gpsu='git push --set-upstream origin $(git_current_branch)'
 alias grbim='git rebase -i origin/master'
-alias gbdd='git branch -D $1'
 alias grbmfp='gco master; gl; gco -; grbm; gp -f;'
 alias grs="git fetch origin staging && gco staging && git reset origin/staging --hard && gco -"
+alias gst="git status -sb"
 
 # Bundle
 alias be="bundle exec"

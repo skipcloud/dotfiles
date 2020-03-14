@@ -141,7 +141,7 @@ set mouse=a                    " this is 'a' by default but for some reason need
 set dictionary=/usr/share/dict/words
 set spelllang=en
 
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case " ripgrep settings
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --glob\ !vendor " ripgrep settings
 set rtp+=/usr/local/opt/fzf                           " set the runtime path to include FZF
 
 " Alt/Meta key mapping doesn't work on gnome terminal
