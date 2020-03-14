@@ -23,10 +23,14 @@ Plug 'jacoborus/tender.vim'
 
 Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
+
 " snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
+
+" UltiSnip
+" Plug 'SirVer/ultisnips' 
 
 " split/join
 Plug 'AndrewRadev/splitjoin.vim'
