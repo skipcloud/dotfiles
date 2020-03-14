@@ -51,6 +51,16 @@ tinyprompt() {
   export PS1=${prompts[((RANDOM % ${#prompts[@]} + 1))]}
 }
 
+# git-delete-old-branches is a temp function to house this code
+# until I can be bothered to put it in a git alias
+git-delete-old-branches() {
+  for branch in $(git branch | grep -vE '(master|staging)'); do
+    if [ -z "$(git --no-pager log -1 --since='1 month ago' --no-patch $branch)"  ]; then
+      git branch -D $branch
+    fi
+  done
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
