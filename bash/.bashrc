@@ -152,5 +152,5 @@ umask 027
 [ -d $HOME/src/oo ] && source "$HOME/src/oo/env"
 
 # Initialize rbenv
-[ type rbenv > /dev/null ] && eval "$(rbenv init -)"
+type rbenv > /dev/null && eval "$(rbenv init -)"
 
