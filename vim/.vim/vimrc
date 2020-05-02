@@ -20,6 +20,7 @@ Plug 'fatih/vim-go'
 " colourschemes
 Plug 'jaredgorski/spacecamp'
 Plug 'jacoborus/tender.vim'
+Plug 'cocopon/iceberg.vim'
 
 Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
@@ -79,17 +80,24 @@ Plug 'godlygeek/tabular'
 
 Plug 'hashivim/vim-terraform'
 
+Plug 'kchmck/vim-coffee-script'
 " All of your Plugins must be added before the following line
 call plug#end()
+
+
 
 " Options/Customisations {{{1
 " Appearance{{{2
 
-colorscheme tender
+colorscheme iceberg
+
+" colorscheme tender
+" highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
+" highlight VertSplit ctermfg=white
+
 " colorscheme delek
 " colorscheme spacecamp_lite
-highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
-highlight VertSplit ctermfg=white
+
 
 set number   " line numbers
 " set relativenumber
