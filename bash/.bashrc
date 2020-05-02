@@ -4,6 +4,11 @@ roo() {
   xdg-open "http://go.roo.tools/$1"
 }
 
+# groo() opens the specified deliveroo github repo
+# in the default browser
+groo() {
+  xdg-open "https://github.com/deliveroo/$1"
+}
 # comic() opens a random comic in default browser
 comic() {
   urls=(
