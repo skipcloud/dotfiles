@@ -62,15 +62,21 @@ ZSH_THEME="minimal"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  aws
+  colorize
+  encode64
   git
+  golang
   colored-man-pages
   rails
   rake
   rbenv
   ruby
+  themes
   tmux
   zsh_reload
 )
+
 
 export ZSH_TMUX_AUTOSTART=true
 
