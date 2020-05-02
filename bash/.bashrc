@@ -78,6 +78,12 @@ weather() {
   curl wttr.in/$1
 }
 
+# :q() exits the terminal, I know you meant to type
+# exit but it's okay I gotchu
+:q() {
+  exit
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
