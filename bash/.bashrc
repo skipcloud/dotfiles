@@ -84,6 +84,28 @@ weather() {
   exit
 }
 
+# j() jumps to a project folder defined in $PROJECT_DIRS
+j() {
+  if [ -z "$PROJECT_DIRS" ]; then
+    echo '$PROJECT_DIRS has not been set' >&2
+    return 1
+  fi
+
+  if [ -z "$1" ]; then
+    echo "missing argument: '$0 <project>'" >&2
+  fi
+
+  for dir in "${PROJECT_DIRS[@]}"; do
+    if [ -d "$dir/$1" ]; then
+      cd $dir/$1
+      return 0
+    fi
+  done
+
+  echo "project '$1' not found"
+  return 1
+}
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
@@ -150,6 +172,9 @@ export transport_models=$code/roo/transport-models
 export checkout=$deliveroo_gopath/checkout
 export coinfra=$code/roo/co-infrastructure
 export merchinfra=$code/roo/merch-algos-infrastructure
+
+# for use with j()
+PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 
 # add private key to key chain
 [ -e $HOME/.ssh/alan.gibson ] && ssh-add $HOME/.ssh/alan.gibson
