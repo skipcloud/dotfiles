@@ -112,7 +112,10 @@ alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
 alias st-zeus-log="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus --log .ZEUSLOG start"
 alias zt='zeus test'
 
-alias editbash='cp $HOME/.bashrc $HOME/.bashrc.bak; vim $HOME/.bashrc'
+# quickly edit rc files
+alias bashrc='vim $HOME/.bashrc'
+alias vimrc='vim $HOME/.vimrc'
+alias zshrc='vim $HOME/.zshrc'
 
 # Git
 # these could be put into .gitconfig but I prefer not
