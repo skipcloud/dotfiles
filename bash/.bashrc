@@ -9,6 +9,12 @@ roo() {
 groo() {
   xdg-open "https://github.com/deliveroo/$1"
 }
+
+# email() opens gmail
+email() {
+  xdg-open "https://mail.google.com/mail/u/1/"
+}
+
 # comic() opens a random comic in default browser
 comic() {
   urls=(
@@ -36,7 +42,6 @@ mypulls() {
 # define() looks for definitions
 define() {
   IFS=+ xdg-open "https://duckduckgo.com/?q=define+$*"
-
 }
 
 # cdr navigates back to the root directory of a git project
