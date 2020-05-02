@@ -180,7 +180,7 @@ export merchinfra=$code/roo/merch-algos-infrastructure
 PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 
 # add private key to key chain
-[ -e $HOME/.ssh/alan.gibson ] && ssh-add $HOME/.ssh/alan.gibson
+[ -e $HOME/.ssh/alan.gibson ] && eval $(ssh-agent) && ssh-add $HOME/.ssh/alan.gibson
 
 # load secrets
 [ -d ~/secrets ] && source ~/secrets/.secretrc
