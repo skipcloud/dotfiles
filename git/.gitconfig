@@ -18,6 +18,7 @@
 		git checkout -
 	ctags = !.git/hooks/ctags
 	undo = reset HEAD^
+	wip = !git add . && git commit -m WIP
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [init]
