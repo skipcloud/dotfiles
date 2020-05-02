@@ -139,6 +139,7 @@ set autoindent                 " always set autoindenting on
 set backspace=start,eol,indent " allow backspace to delete auto indent, newlines
 set history=200                " keep 200 lines of command line history
 set splitright                 " vertical split to the right
+set splitbelow                 " horizontal split below
 set linebreak                  " wrap on whitespace
 set clipboard=unnamedplus      " Ensure clipboard works on linux
 set ignorecase                 " ignore case in search patterns
