@@ -134,8 +134,9 @@ highlight LineNr ctermfg=white
 " Behaviour {{{2
 " General {{{3
 
-set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab " default tab behaviour
 set path+=**                   " Set path to search recursively
+set path+=/usr/include/**
+set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab " default tab behaviour
 set autoindent                 " always set autoindenting on
 set backspace=start,eol,indent " allow backspace to delete auto indent, newlines
 set history=200                " keep 200 lines of command line history
