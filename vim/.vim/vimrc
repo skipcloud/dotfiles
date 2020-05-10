@@ -25,6 +25,7 @@ Plug 'cocopon/iceberg.vim'
 Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
 
+Plug 'lilydjwg/colorizer'
 " snipmate
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'tomtom/tlib_vim'
