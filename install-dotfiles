@@ -14,9 +14,9 @@ fi
 
 if [ -d './git' ]; then
   for file in $(ls -A git); do
-    if [ -f "$file" ]; then
+    if [ -f "./git/$file" ]; then
       ln -fs $(pwd)/git/$file $HOME/$file
-    elif [ -d "$file" ]; then
+    elif [ -d "./git/$file" ]; then
       ln -fds $(pwd)/git/$file $HOME/$file
     fi
   done
