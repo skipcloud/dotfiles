@@ -61,7 +61,7 @@ cdr() {
 # tinyprompt() sets PS1 to something compact for those
 # times when you don't have much room.
 tinyprompt() {
-  prompts=("> " "~ " "λ " "Δ ")
+  prompts=("> " "~ " "λ " "Δ " "∴ " "∵ ")
   export PS1=${prompts[((RANDOM % ${#prompts[@]} + 1))]}
 }
 
