@@ -69,7 +69,7 @@ tinyprompt() {
 # until I can be bothered to put it in a git alias
 git-delete-old-branches() {
   for branch in $(git branch | grep -vE '(master|staging)'); do
-    if [ -z "$(git --no-pager log -1 --since='1 month ago' --no-patch $branch)"  ]; then
+    if [ -z "$(git --no-pager log -1 --since='1 month ago' --no-patch "$branch")"  ]; then
       git branch -D $branch
     fi
   done
