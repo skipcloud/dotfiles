@@ -7,10 +7,8 @@
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
-  colorize
   encode64
   git
-  golang
   colored-man-pages
   rails
   rake
