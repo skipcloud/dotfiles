@@ -167,7 +167,8 @@ set mouse=a                    " this is 'a' by default but for some reason need
 set dictionary=/usr/share/dict/words
 set spelllang=en
 
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --glob\ !vendor " ripgrep settings
+" ripgrep settings
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden\ --glob\ !vendor
 
 " Alt/Meta key mapping doesn't work on gnome terminal
 let c='a'
