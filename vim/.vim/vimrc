@@ -151,7 +151,6 @@ set statusline+=\ \-\ %p%%         " percentage through file
 " General {{{3
 
 set path+=**                   " Set path to search recursively
-set path+=/usr/include/**
 set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab " default tab behaviour
 set autoindent                 " always set autoindenting on
 set backspace=start,eol,indent " allow backspace to delete auto indent, newlines
@@ -311,6 +310,10 @@ if has("autocmd")
     autocmd FileType sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
     autocmd BufWritePre *.tf :TerraformFmt
+
+    " /usr/include/**
+    autocmd FileType c set tags+=~/tags
+    autocmd FileType c set path+=/usr/include/**
 
     augroup END
 endif " has("autocmd")
