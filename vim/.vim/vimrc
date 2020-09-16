@@ -16,7 +16,7 @@ endif
 
 " Plugins {{{1
 call plug#begin('~/.vim/bundle')
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " colourschemes
 Plug 'jaredgorski/spacecamp'
 Plug 'jacoborus/tender.vim'
