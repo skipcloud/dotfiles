@@ -304,8 +304,10 @@ if has("autocmd")
       \ | endif
 
     " Go related
-    autocmd FileType go nmap <Leader>i <Plug>(go-info)
-    autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+    autocmd FileType go nmap <buffer> <Leader>i <Plug>(go-info)
+    autocmd FileType go nmap <buffer> <Leader>d <Plug>(go-diagnostics)
+    autocmd FileType go nmap <buffer> <Leader>e <Plug>(go-describe)
+    autocmd FileType go setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab nowrap
 
     autocmd BufWritePost .vimrc source $MYVIMRC
 
