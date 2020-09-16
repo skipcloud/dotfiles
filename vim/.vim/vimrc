@@ -33,7 +33,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'garbas/vim-snipmate'
 
 " UltiSnip
-" Plug 'SirVer/ultisnips' 
+" Plug 'SirVer/ultisnips'
 
 " Postgres
 Plug 'lifepillar/pgsql.vim'
@@ -219,16 +219,26 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" ripgrep
+let g:rg_command = 'rg --vimgrep --hidden --glob !vendor --glob !.git'
+
+" testing (open vim terminal when running tests)
+let test#strategy = "vimterminal"
+
 " Default SQL type
 let g:sql_type_default = 'pgsql'
 let g:dadbod_manage_dbext = 1
+
+" Markdown
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " Mappings {{{1
 
 let mapleader="," " My leader key
 noremap \ ,
 " easily get back normal mode
-ino jj <esc> 
+ino jj <esc>
 " ins-completion CTRL-X mappings
 inoremap ^] ^X^]
 inoremap ^F ^X^F
