@@ -152,6 +152,28 @@ Definition: $def
 $note
 END
 }
+
+# yesterday() quickly opens my yesterday notes in vim, I use
+# this file to keep track of work I've completed the day before
+function yesterday() {
+  if ! type note >/dev/null; then
+    echo "'note' not found. Please install" >&2
+    exit 1
+  fi
+
+  note yesterday
+}
+
+# cdgd() changes directory to the gemdir
+function cdgd() {
+  if ! type gem >/dev/null 2>&1; then
+    echo "'gem' not installed" >&2
+    return 1
+  fi
+
+  cd $(gem environment gemdir) 
+}
+
 ##
 # Aliases
 #
