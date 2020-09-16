@@ -211,6 +211,10 @@ alias brs="bundle exec rails s"
 # Deliveroo - Orderweb
 alias refresh-db='rake db:refresh; bundle exec rake team:restore[data/team/skip.yml]'
 
+# Misc
+alias open=xdg-open
+alias gotop="gotop -c vice"
+
 ##
 # ENVIRONMENT VARIABLES
 #
