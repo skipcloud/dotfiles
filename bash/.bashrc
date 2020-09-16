@@ -263,7 +263,7 @@ if grep 'bash$' <<< "$0" >/dev/null; then
 fi
 
 # for use with j()
-PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
+export PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 
 # add private key to key chain
 [ -e $HOME/.ssh/alan.gibson ] && eval $(ssh-agent) && ssh-add $HOME/.ssh/alan.gibson
