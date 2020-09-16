@@ -249,7 +249,11 @@ map <C-p> :FZF<cr>
 nmap <Leader><CR> :nohlsearch<cr>
 map <leader>q :NERDTreeToggle<CR>
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
-nnoremap <Leader>d :call CreateYamlDate()<cr>
+nnoremap <Leader>f :NERDTreeFind<cr>
+
+
+nnoremap <Leader>l :silent ! lights toggle<cr>
+
 
 " snippets
 " imap <C-j> <Plug>snipMateNextOrTrigger
