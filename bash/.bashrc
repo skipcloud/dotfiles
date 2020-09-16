@@ -1,3 +1,7 @@
+##
+# FUNCTIONS
+#
+
 # roo() helps you access things you would've used 'go/'
 # for back when you used a Mac
 roo() {
@@ -106,6 +110,10 @@ j() {
   return 1
 }
 
+##
+# Aliases
+#
+
 alias st-foreman='foreman start -f Procfile-js.dev;'
 alias st-sk='bundle exec sidekiq;'
 alias st-zeus="OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES zeus start;"
@@ -136,7 +144,12 @@ alias be="bundle exec"
 alias bi='bundle install'
 alias brs="bundle exec rails s"
 
+# Deliveroo - Orderweb
 alias refresh-db='rake db:refresh; bundle exec rake team:restore[data/team/skip.yml]'
+
+##
+# ENVIRONMENT VARIABLES
+#
 
 # Go
 export GOPATH=$HOME/go
