@@ -229,6 +229,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 export NVM_DIR=$HOME/.nvm
 export RI="--format ansi --width 70"
 export EDITOR=vim
+export GPG_TTY=$(tty)
 
 # Build PATH
 export PATH=/usr/local/opt/gettext/bin
