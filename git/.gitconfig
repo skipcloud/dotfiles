@@ -1,6 +1,7 @@
 [user]
 	email = skipcloudgibson@gmail.com
 	name = Skip Gibson
+	signingkey = E0F4735F9A1D73D60BA40D4C1D2BBCD06B5F1BE6
 [core]
 	excludesfile = /home/skip/.gitignore
 [branch]
