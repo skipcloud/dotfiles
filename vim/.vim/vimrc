@@ -114,6 +114,9 @@ set background=light
 " colorscheme delek
 " colorscheme spacecamp_lite
 
+" Status bar colour - default
+" highlight statusline ctermfg=white
+" highlight LineNr ctermfg=white
 
 set number   " line numbers
 " set relativenumber
@@ -142,9 +145,7 @@ set statusline+=\ col\ %c         " column
 set statusline+=\ \-\ line\ %l    " line number
 " set statusline+=\ \-\ %L           " total lines
 set statusline+=\ \-\ %p%%         " percentage through file
-" Status bar colour
-highlight statusline ctermfg=white 
-highlight LineNr ctermfg=white 
+
 
 " Behaviour {{{2
 " General {{{3
