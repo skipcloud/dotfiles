@@ -85,7 +85,7 @@ Plug 'SirVer/ultisnips' " Go snippets
 Plug 'jremmen/vim-ripgrep'
 
 " markdown folding
-Plug 'masukomi/vim-markdown-folding'
+Plug 'plasticboy/vim-markdown'
 
 Plug 'godlygeek/tabular'
 
@@ -304,8 +304,8 @@ if has("autocmd")
 
     autocmd BufWritePost .vimrc source $MYVIMRC
 
-    " Autofold markdown files
-    autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
+    " Markdown: format a paragraph
+    autocmd FileType markdown noremap <Leader>o gqap
 
     autocmd FileType sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
