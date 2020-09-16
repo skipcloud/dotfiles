@@ -258,6 +258,10 @@ export checkout=$deliveroo_gopath/checkout
 export coinfra=$code/roo/co-infrastructure
 export merchinfra=$code/roo/merch-algos-infrastructure
 
+if grep 'bash$' <<< "$0" >/dev/null; then
+  PS1="\033[35m\s\033[m \W > "
+fi
+
 # for use with j()
 PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 
