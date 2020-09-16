@@ -266,7 +266,7 @@ fi
 export PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 
 # add private key to key chain
-[ -e $HOME/.ssh/alan.gibson ] && eval $(ssh-agent) && ssh-add $HOME/.ssh/alan.gibson
+[ -e $HOME/.ssh/alan.gibson ] && eval $(ssh-agent > /dev/null) && ssh-add -q $HOME/.ssh/alan.gibson
 
 # load secrets
 [ -d ~/secrets ] && source ~/secrets/.secretrc
