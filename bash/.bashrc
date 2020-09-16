@@ -186,7 +186,7 @@ alias zt='zeus test'
 
 # quickly edit rc files
 alias bashrc='vim $HOME/.bashrc'
-alias vimrc='vim $HOME/.vimrc'
+alias vimrc='vim $HOME/.vim/vimrc'
 alias zshrc='vim $HOME/.zshrc'
 
 # Git
@@ -195,7 +195,7 @@ alias zshrc='vim $HOME/.zshrc'
 alias gbdd='git branch -D $1'
 alias gcs='git checkout staging'
 alias gdc='git diff --cached'
-alias gfrbm='git fetch origin master && git checkout master && git pull && git checkout - && git rebase master'
+alias gfrbm='git fetch --prune origin master:master && git rebase origin/master'
 alias gmne='git merge --no-edit'
 alias gpsu='git push --set-upstream origin $(git_current_branch)'
 alias grbim='git rebase -i origin/master'
