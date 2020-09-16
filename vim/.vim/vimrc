@@ -21,6 +21,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'jaredgorski/spacecamp'
 Plug 'jacoborus/tender.vim'
 Plug 'cocopon/iceberg.vim'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
 
 Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
@@ -87,8 +88,11 @@ call plug#end()
 
 
 
+
 " Options/Customisations {{{1
 " Appearance{{{2
+
+" colorscheme onehalflight
 
 colorscheme iceberg
 
