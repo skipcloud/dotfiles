@@ -35,6 +35,9 @@ Plug 'garbas/vim-snipmate'
 " UltiSnip
 " Plug 'SirVer/ultisnips' 
 
+" Postgres
+Plug 'lifepillar/pgsql.vim'
+
 " split/join
 Plug 'AndrewRadev/splitjoin.vim'
 
@@ -60,6 +63,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'tpope/vim-rails'
+" DB extension
+Plug 'tpope/vim-dadbod'
+Plug 'vim-scripts/dbext.vim'
+
 " Fuzzy search
 Plug 'junegunn/fzf'
 
@@ -209,6 +216,11 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" Default SQL type
+let g:sql_type_default = 'pgsql'
+let g:dadbod_manage_dbext = 1
+
 " Mappings {{{1
 
 let mapleader="," " My leader key
