@@ -255,6 +255,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
+export PATH=$HOME/.cargo/bin:$PATH
 
 # common directories
 
