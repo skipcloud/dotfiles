@@ -59,8 +59,20 @@ cdr() {
 }
 
 # tinyprompt() sets PS1 to something compact for those
-# times when you don't have much room.
+# times when you don't have much room. The option -r 
+# will restore the original prompt
 tinyprompt() {
+  if [ "$1" = "-r" ] && [ -n "$OLD_PS1" ]; then
+    PS1=$OLD_PS1
+    return 0
+  fi
+
+  # only store the original prompt once so calling
+  # the function again won't store a tinyprompt
+  if [ -z "$OLD_PS1" ]; then
+    export OLD_PS1=$PS1
+  fi
+
   prompts=("> " "~ " "λ " "Δ " "∴ " "∵ ")
   export PS1=${prompts[((RANDOM % ${#prompts[@]} + 1))]}
 }
