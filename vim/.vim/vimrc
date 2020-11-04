@@ -87,7 +87,7 @@ Plug 'jremmen/vim-ripgrep'
 " markdown folding
 Plug 'plasticboy/vim-markdown'
 
-Plug 'godlygeek/tabular'
+Plug 'cespare/vim-toml'
 
 Plug 'hashivim/vim-terraform'
 
