@@ -234,6 +234,9 @@ let g:dadbod_manage_dbext = 1
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 
+" terraform
+let g:terraform_fmt_on_save=1
+
 " Mappings {{{1
 
 let mapleader="," " My leader key
@@ -315,8 +318,6 @@ if has("autocmd")
     autocmd FileType markdown noremap <Leader>o gqap
 
     autocmd FileType sh setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-
-    autocmd BufWritePre *.tf :TerraformFmt
 
     " /usr/include/**
     autocmd FileType c set tags+=~/tags
