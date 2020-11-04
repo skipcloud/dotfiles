@@ -231,6 +231,10 @@ alias gotop="gotop -c vice"
 # ENVIRONMENT VARIABLES
 #
 
+# FZF plugin
+# find all, including hidden, using ripgrep
+export FZF_DEFAULT_COMMAND='rg --hidden --iglob !.git --files-with-matches ""'
+
 # Go
 export GOPATH=$HOME/go
 export GOPRIVATE=github.com/deliveroo
