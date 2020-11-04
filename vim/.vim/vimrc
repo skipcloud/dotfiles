@@ -103,8 +103,10 @@ call plug#end()
 
 " colorscheme onehalflight
 
+" * Iceberg can be either light or dark, depending on the background colour.
 colorscheme iceberg
-set background=light
+set background=dark 
+" set background=light
 
 " * Tender colour scheme with highlights
 " colorscheme tender
