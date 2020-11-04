@@ -5,6 +5,7 @@
 [core]
 	editor = vim
 	excludesfile = /home/skip/.gitignore
+	attributesFile = /home/skip/.gitattributes
 [branch]
 	autosetuprebase = always
 [pull]
@@ -37,3 +38,5 @@
 	enabled = true
 [color]
 	pager = true
+[diff]
+	tool = vimdiff2
