@@ -70,8 +70,8 @@ Plug 'tpope/vim-dadbod'
 Plug 'vim-scripts/dbext.vim'
 
 " Fuzzy search
-Plug 'junegunn/fzf'
-
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 " Testing
 Plug 'keith/rspec.vim'
 Plug 'janko-m/vim-test'
@@ -92,6 +92,9 @@ Plug 'cespare/vim-toml'
 Plug 'hashivim/vim-terraform'
 
 Plug 'kchmck/vim-coffee-script'
+
+" align text
+Plug 'godlygeek/tabular'
 " All of your Plugins must be added before the following line
 call plug#end()
 
