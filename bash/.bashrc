@@ -251,11 +251,12 @@ export GPG_TTY=$(tty)
 export PATH=/usr/local/opt/gettext/bin
 export PATH=$PATH:$HOME/.rbenv/plugins/ruby-build/bin
 export PATH=$PATH:$HOME/.rbenv/bin
-export PATH=$PATH:$HOME/bin:/usr/local/bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.tfenv/bin:$PATH
 
 # common directories
 
@@ -267,6 +268,7 @@ export mysite=$code/personal/skipcloud.github.io
 export dots=$HOME/dotfiles
 
 # deliveroo
+export roo=$code/roo
 export orderweb=$code/roo/orderweb
 export corest=$deliveroo_gopath/co-restaurants
 export consumersearch=$deliveroo_gopath/consumer-search-service
