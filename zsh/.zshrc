@@ -32,3 +32,5 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # completion init
 compinit
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
