@@ -260,9 +260,6 @@ nnoremap <Leader>w :call TrimWhiteSpace()<cr>
 nnoremap <Leader>f :NERDTreeFind<cr>
 
 
-nnoremap <Leader>l :silent ! lights toggle<cr>
-
-
 " snippets
 " imap <C-j> <Plug>snipMateNextOrTrigger
 " smap <C-j> <Plug>snipMateNextOrTrigger
