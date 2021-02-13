@@ -183,7 +183,7 @@ function cdgd() {
     return 1
   fi
 
-  cd $(gem environment gemdir) 
+  cd "$(gem environment gemdir)/gems"
 }
 
 ##
