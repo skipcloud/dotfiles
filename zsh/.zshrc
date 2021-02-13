@@ -23,7 +23,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # load FZF key bindings
-source /usr/share/doc/fzf/examples/key-bindings.zsh
+# source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # source ~/.bashrc as the majority of my config is done in there.
 # This is so I can switch between bash and zsh and still have 
@@ -31,6 +31,7 @@ source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -e ~/.bashrc ] && source ~/.bashrc
 
 # completion init
-compinit
+autoload -U compinit
+compinit -i
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
