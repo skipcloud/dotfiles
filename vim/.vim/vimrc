@@ -259,6 +259,7 @@ map <leader>q :NERDTreeToggle<CR>
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
 nnoremap <Leader>f :NERDTreeFind<cr>
 nnoremap <Leader>gb :Gblame<cr>
+nnoremap <Leader>gbr :Gbrowse<cr>
 
 
 " snippets
