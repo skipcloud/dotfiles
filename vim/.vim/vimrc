@@ -258,6 +258,7 @@ nmap <Leader><CR> :nohlsearch<cr>
 map <leader>q :NERDTreeToggle<CR>
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
 nnoremap <Leader>f :NERDTreeFind<cr>
+nnoremap <Leader>gb :Gblame<cr>
 
 
 " snippets
