@@ -1,6 +1,5 @@
 install:
 	./install-dotfiles
-brew:
-	(cd brew && brew bundle)
-
-.PHONY: brew install
+install-others:
+	./other/install-others
+.PHONY: install install-others

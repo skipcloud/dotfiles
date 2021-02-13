@@ -21,7 +21,3 @@ if [ -d './git' ]; then
     fi
   done
 fi
-  
-if [ $os = "Darwin" ]; then
-  $(cd brew && brew install)
-fi

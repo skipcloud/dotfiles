@@ -1,0 +1,8 @@
+#!/bin/sh -
+
+DIR=$(git rev-parse --show-toplevel)
+
+# install global vim config to make sudoedit etc easier to work with
+if [ -e $DIR/other/vimrc.local ]; then
+  sudo ln -sf $DIR/other/vimrc.local /etc/vim/
+fi

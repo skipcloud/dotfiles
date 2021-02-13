@@ -1,0 +1,4 @@
+" basic settings for root user
+syntax on
+color darkblue
+inoremap jj <ESC> 
