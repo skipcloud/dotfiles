@@ -95,7 +95,11 @@ Plug 'kchmck/vim-coffee-script'
 
 " align text
 Plug 'godlygeek/tabular'
-" All of your Plugins must be added before the following line
+
+" HCL syntax highlighting
+Plug 'jvirtanen/vim-hcl'
+
+"" All of your Plugins must be added before the following line
 call plug#end()
 
 
@@ -238,10 +242,13 @@ let g:dadbod_manage_dbext = 1
 " Markdown
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_folding_disabled = 1
 
 " terraform
 let g:terraform_fmt_on_save=1
 
+" Snipmate deprecated something
+let g:snipMate = { 'snippet_version' : 1 }
 " Mappings {{{1
 
 let mapleader="," " My leader key
@@ -258,8 +265,9 @@ nmap <Leader><CR> :nohlsearch<cr>
 map <leader>q :NERDTreeToggle<CR>
 nnoremap <Leader>w :call TrimWhiteSpace()<cr>
 nnoremap <Leader>f :NERDTreeFind<cr>
-nnoremap <Leader>gb :Gblame<cr>
-nnoremap <Leader>gbr :Gbrowse<cr>
+nnoremap <Leader>gb :Git blame<cr>
+nnoremap <Leader>gbr :GBrowse<cr>
+vnoremap <Leader>gbr :GBrowse<cr>
 
 
 " snippets
@@ -296,7 +304,7 @@ if has("autocmd")
     " tab settings for Makefiles
     autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
 
-    autocmd BufWritePre *.rb,*.tf,*.proto,*.go,*.c,*.md :call TrimWhiteSpace()
+    autocmd BufWritePre *.rb,*.tf,*.proto,*.go,*.c,*.md,*.pkr.hcl :call TrimWhiteSpace()
     " ^N causes included files to be read which slows down
     " autocomplete a hell of a lot
     autocmd BufNewFile,BufRead *spec.rb setlocal complete-=i
