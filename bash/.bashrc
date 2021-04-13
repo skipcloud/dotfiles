@@ -226,6 +226,7 @@ alias refresh-db='rake db:refresh; bundle exec rake team:restore[data/team/skip.
 # Misc
 alias open=xdg-open
 alias gotop="gotop -c vice"
+alias evpn=expressvpn
 
 ##
 # ENVIRONMENT VARIABLES
