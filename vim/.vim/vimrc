@@ -111,12 +111,12 @@ call plug#end()
 " colorscheme onehalflight
 
 " * Iceberg can be either light or dark, depending on the background colour.
-" colorscheme iceberg
+colorscheme iceberg
 " set background=dark 
-" set background=light
+set background=light
 
 " * Tender colour scheme with highlights
-colorscheme tender
+" colorscheme tender
 highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
 highlight VertSplit ctermfg=white
 
