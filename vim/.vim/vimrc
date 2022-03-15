@@ -41,6 +41,8 @@ Plug 'lifepillar/pgsql.vim'
 " split/join
 Plug 'AndrewRadev/splitjoin.vim'
 
+Plug 'scrooloose/syntastic'
+
 " Optional:
 Plug 'honza/vim-snippets'
 
@@ -99,6 +101,11 @@ Plug 'godlygeek/tabular'
 " HCL syntax highlighting
 Plug 'jvirtanen/vim-hcl'
 
+" JSX syntax highlighting
+Plug 'MaxMEllon/vim-jsx-pretty'
+
+Plug 'nanotech/jellybeans.vim'
+
 "" All of your Plugins must be added before the following line
 call plug#end()
 
@@ -107,6 +114,9 @@ call plug#end()
 
 " Options/Customisations {{{1
 " Appearance{{{2
+
+colorscheme jellybeans
+set background=dark
 
 " colorscheme onehalflight
 
