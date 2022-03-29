@@ -17,20 +17,32 @@ endif
 " Plugins {{{1
 call plug#begin('~/.vim/bundle')
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " colourschemes
 Plug 'jaredgorski/spacecamp'
 Plug 'jacoborus/tender.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'sonph/onehalf', {'rtp': 'vim/'}
-
+Plug 'altercation/vim-colors-solarized'
+Plug 'sainnhe/everforest'
+Plug 'junegunn/vim-peekaboo'
 Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
+Plug 'morhetz/gruvbox'
+
+" syntax highlight
+Plug 'Joorem/vim-haproxy'
+Plug 'leafgarland/typescript-vim'
 
 Plug 'lilydjwg/colorizer'
 " snipmate
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
+" Plug 'honza/vim-snippets'
+"
+Plug 'mattn/emmet-vim'
 
 " UltiSnip
 " Plug 'SirVer/ultisnips'
@@ -41,10 +53,7 @@ Plug 'lifepillar/pgsql.vim'
 " split/join
 Plug 'AndrewRadev/splitjoin.vim'
 
-Plug 'scrooloose/syntastic'
-
-" Optional:
-Plug 'honza/vim-snippets'
+" Plug 'scrooloose/syntastic'
 
 " Autogenerate pair ({[
 Plug 'jiangmiao/auto-pairs'
@@ -60,9 +69,6 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-repeat'
 " Commenting and uncommenting stuff
 Plug 'tpope/vim-commentary'
-" Git wrapper
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rbenv'
@@ -81,8 +87,6 @@ Plug 'janko-m/vim-test'
 " indent markers
 Plug 'Yggdroot/indentLine'
 
-Plug 'SirVer/ultisnips' " Go snippets
-
 " replace grep
 Plug 'jremmen/vim-ripgrep'
 
@@ -92,8 +96,6 @@ Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 
 Plug 'hashivim/vim-terraform'
-
-Plug 'kchmck/vim-coffee-script'
 
 " align text
 Plug 'godlygeek/tabular'
@@ -106,30 +108,34 @@ Plug 'MaxMEllon/vim-jsx-pretty'
 
 Plug 'nanotech/jellybeans.vim'
 
-"" All of your Plugins must be added before the following line
+" Conqour of Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
-
-
 
 " Options/Customisations {{{1
 " Appearance{{{2
 
-colorscheme jellybeans
-set background=dark
+" set background=dark 
+set background=light
+
+" colorscheme everforest
+colorscheme gruvbox
+let g:gruvbox_contrast_light = 'hard'
+
+" colorscheme jellybeans
+" set background=dark
 
 " colorscheme onehalflight
 
 " * Iceberg can be either light or dark, depending on the background colour.
-colorscheme iceberg
-" set background=dark 
-set background=light
+" colorscheme iceberg
 
 " * Tender colour scheme with highlights
 " colorscheme tender
-highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
-highlight VertSplit ctermfg=white
+" highlight Visual ctermfg=yellow ctermbg=blue " set visual selection colours that stand out
+" highlight VertSplit ctermfg=white
 
+" colorscheme solarized
 " colorscheme delek
 " colorscheme spacecamp_lite
 
@@ -185,6 +191,7 @@ set complete+=kspell           " check dictionary when autocompete is used and s
 set mouse=a                    " this is 'a' by default but for some reason needs set explicitly on my linux machine
 set dictionary=/usr/share/dict/words
 set spelllang=en
+set nowrap 
 
 " ripgrep settings
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --hidden\ --glob\ !vendor
@@ -259,6 +266,9 @@ let g:terraform_fmt_on_save=1
 
 " Snipmate deprecated something
 let g:snipMate = { 'snippet_version' : 1 }
+
+let g:typescript_indent_disable = 1
+
 " Mappings {{{1
 
 let mapleader="," " My leader key
@@ -279,11 +289,11 @@ nnoremap <Leader>gb :Git blame<cr>
 nnoremap <Leader>gbr :GBrowse<cr>
 vnoremap <Leader>gbr :GBrowse<cr>
 
-
-" snippets
-" imap <C-j> <Plug>snipMateNextOrTrigger
-" smap <C-j> <Plug>snipMateNextOrTrigger
-imap <leader>s <Plug>snipMateShow
+nnoremap <Leader>tn :TestNearest<CR>
+nnoremap <Leader>tl :TestLast<CR>
+nnoremap <Leader>tf :TestFile<CR>
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
 
 " Functions {{{1
 " TrimWhiteSpace trims the whitespace from the ends of lines
@@ -310,6 +320,9 @@ if has("autocmd")
     autocmd FileType text setlocal textwidth=78
 
     autocmd FileType gitcommit setlocal spell
+
+    " run python script
+    autocmd FileType python nmap <Leader>r :w<CR>:! clear; python3 %<CR>
 
     " tab settings for Makefiles
     autocmd FileType make set noexpandtab shiftwidth=8 softtabstop=0
@@ -345,6 +358,7 @@ if has("autocmd")
     autocmd FileType c set tags+=~/tags
     autocmd FileType c set path+=/usr/include/**
 
+    autocmd FileType typescript setlocal shiftwidth=4 softtabstop=4 expandtab
     augroup END
 endif " has("autocmd")
 " vim:foldmethod=marker
