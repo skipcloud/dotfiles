@@ -16,8 +16,9 @@ endif
 
 " Plugins {{{1
 call plug#begin('~/.vim/bundle')
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" " https://puremourning.github.io/vimspector-web/
+" Plug  'puremourning/vimspector'
 
 " colourschemes
 Plug 'jaredgorski/spacecamp'
@@ -40,7 +41,7 @@ Plug 'lilydjwg/colorizer'
 " Plug 'MarcWeber/vim-addon-mw-utils'
 " Plug 'tomtom/tlib_vim'
 " Plug 'garbas/vim-snipmate'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 "
 Plug 'mattn/emmet-vim'
 
@@ -115,12 +116,19 @@ call plug#end()
 " Options/Customisations {{{1
 " Appearance{{{2
 
-" set background=dark 
-set background=light
+set background=dark 
+" set background=light
 
-" colorscheme everforest
-colorscheme gruvbox
-let g:gruvbox_contrast_light = 'hard'
+" This configuration option should be placed before `colorscheme everforest`.
+" Available values: 'hard', 'medium'(default), 'soft'
+let g:everforest_background = 'hard'
+let g:everforest_disable_italic_comment = 1
+let g:everforest_sign_column_background = 'none'
+let g:everforest_diagnostic_text_highlight = 1
+colorscheme everforest
+
+" let g:gruvbox_contrast_light = 'hard'
+" colorscheme gruvbox
 
 " colorscheme jellybeans
 " set background=dark
@@ -143,15 +151,16 @@ let g:gruvbox_contrast_light = 'hard'
 " highlight statusline ctermfg=white
 " highlight LineNr ctermfg=white
 
-set number   " line numbers
-" set relativenumber
-set showcmd   " show incomplete cmds down the bottom
-set showmode  " show current mode down the bottom
-set wildmenu  " display all matching files when tab complete
-set ruler     " show the cursor position all the time
-set incsearch " incremental search
-set hlsearch  " Switch on highlighting the last used search pattern.
-
+set number          " line numbers
+set showcmd         " show incomplete cmds down the bottom
+set showmode        " show current mode down the bottom
+set wildmenu        " display all matching files when tab complete
+set ruler           " show the cursor position all the time
+set incsearch       " incremental search
+set hlsearch        " Switch on highlighting the last used search pattern.
+set cmdheight=2     " More room in the command line
+set updatetime=300  " default is 4000 (4s)
+set shortmess+=c    " don't pass message to ins-complete-menu 
 
 if has("mouse_sgr") " fix mouse not working past 220th column and resizing splits
     set ttymouse=sgr
@@ -264,11 +273,9 @@ let g:vim_markdown_folding_disabled = 1
 " terraform
 let g:terraform_fmt_on_save=1
 
-" Snipmate deprecated something
-let g:snipMate = { 'snippet_version' : 1 }
-
 let g:typescript_indent_disable = 1
-
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:coc_disable_transparent_cursor=1
 " Mappings {{{1
 
 let mapleader="," " My leader key
@@ -292,9 +299,18 @@ vnoremap <Leader>gbr :GBrowse<cr>
 nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <Leader>tl :TestLast<CR>
 nnoremap <Leader>tf :TestFile<CR>
+
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
-
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 " Functions {{{1
 " TrimWhiteSpace trims the whitespace from the ends of lines
 fun! TrimWhiteSpace()
@@ -358,7 +374,11 @@ if has("autocmd")
     autocmd FileType c set tags+=~/tags
     autocmd FileType c set path+=/usr/include/**
 
+    " Typescript
     autocmd FileType typescript setlocal shiftwidth=4 softtabstop=4 expandtab
+
+    " CoC
+    autocmd CursorHold * silent call CocActionAsync('highlight')
     augroup END
 endif " has("autocmd")
 " vim:foldmethod=marker

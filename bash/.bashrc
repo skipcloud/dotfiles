@@ -31,11 +31,11 @@ comic() {
   xdg-open ${urls[((RANDOM % ${#urls[@]}))]}
 }
 
-# killslack() kills slack and all of the processes
+# kslack() kills slack and all of the processes
 # it, for some reason, leaves running after closing
 # the application.
-killslack() {
-  pgrep slack | xargs --no-run-if-empty kill
+kslack() {
+  pkill slack
 }
 
 # mypulls() opens my github pull request page
@@ -98,28 +98,6 @@ weather() {
 # exit but it's okay I gotchu
 :q() {
   exit
-}
-
-# j() jumps to a project folder defined in $PROJECT_DIRS
-j() {
-  if [ -z "$PROJECT_DIRS" ]; then
-    echo '$PROJECT_DIRS has not been set' >&2
-    return 1
-  fi
-
-  if [ -z "$1" ]; then
-    echo "missing argument: '$0 <project>'" >&2
-  fi
-
-  for dir in "${PROJECT_DIRS[@]}"; do
-    if [ -d "$dir/$1" ]; then
-      cd $dir/$1
-      return 0
-    fi
-  done
-
-  echo "project '$1' not found"
-  return 1
 }
 
 # wod() returns the Word of the Day from Wordnik. 
@@ -186,6 +164,19 @@ function cdgd() {
   cd "$(gem environment gemdir)/gems"
 }
 
+function start-sourcegraph() {
+  docker run $1 --publish 7080:7080 --publish 127.0.0.1:3370:3370 --rm \
+    --volume ~/.sourcegraph/config:/etc/sourcegraph \
+    --volume ~/.sourcegraph/data:/var/opt/sourcegraph \
+    -e DISABLE_OBSERVABILITY=TRUE \
+    sourcegraph/server:3.30.4
+}
+
+# Open a new Google Meet in the default browser
+function meet() {
+  open "https://meet.new"
+}
+
 ##
 # Aliases
 #
@@ -206,6 +197,7 @@ alias zshrc='vim $HOME/.zshrc'
 # having to prefix the commands with `git ...`
 alias gbdd='git branch -D $1'
 alias gcs='git checkout staging'
+alias gcsb='git checkout sandbox'
 alias gdc='git diff --cached'
 alias gfrbm='git fetch --prune origin master:master && git rebase origin/master'
 alias gmne='git merge --no-edit'
@@ -222,9 +214,9 @@ alias brs="bundle exec rails s"
 
 # Deliveroo - Orderweb
 alias refresh-db='rake db:refresh; bundle exec rake team:restore[data/team/skip.yml]'
+alias ssm-start='aws ssm start-session --document DeliverooSSM --target'
 
 # Misc
-alias open=xdg-open
 alias gotop="gotop -c vice"
 alias evpn=expressvpn
 
@@ -283,9 +275,6 @@ if grep 'bash$' <<< "$0" >/dev/null; then
   PS1="\033[35m\s\033[m \W > "
 fi
 
-# for use with j()
-export PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
-
 # add private key to key chain
 [ -e $HOME/.ssh/alan.gibson ] && eval $(ssh-agent > /dev/null) && ssh-add -q $HOME/.ssh/alan.gibson
 
@@ -296,7 +285,7 @@ export PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # set permissions
-umask 027
+# umask 027
 
 # source oo the Go version manager
 # http://www.github.com/hit9/oo
@@ -307,5 +296,9 @@ type rbenv > /dev/null && eval "$(rbenv init -)"
 
 # word of the day
 wod
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
