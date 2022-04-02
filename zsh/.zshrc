@@ -7,16 +7,16 @@
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
+  colored-man-pages
   encode64
   git
-  colored-man-pages
+  golang
   rails
   rake
   rbenv
   ruby
   themes
   tmux
-  zsh_reload
 )
 
 # load oh-my-zsh
@@ -31,7 +31,13 @@ source $ZSH/oh-my-zsh.sh
 [ -e ~/.bashrc ] && source ~/.bashrc
 
 # completion init
+autoload bashcompinit && bashcompinit
 autoload -U compinit
 compinit -i
 
+# AWS CLI completion
+complete -C '/usr/local/bin/aws_completer' aws
+
+source <(kind completion zsh)
+source <(kubectl completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
