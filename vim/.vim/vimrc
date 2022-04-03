@@ -17,9 +17,6 @@ endif
 " Plugins {{{1
 call plug#begin('~/.vim/bundle')
 
-" " https://puremourning.github.io/vimspector-web/
-" Plug  'puremourning/vimspector'
-
 " colourschemes
 Plug 'jaredgorski/spacecamp'
 Plug 'jacoborus/tender.vim'
@@ -31,30 +28,13 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'jparise/vim-graphql'
 Plug 'vim-ruby/vim-ruby'
 Plug 'morhetz/gruvbox'
+Plug 'nanotech/jellybeans.vim'
 
-" syntax highlight
-Plug 'Joorem/vim-haproxy'
-Plug 'leafgarland/typescript-vim'
-
-Plug 'lilydjwg/colorizer'
-" snipmate
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'tomtom/tlib_vim'
-" Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-"
-Plug 'mattn/emmet-vim'
-
-" UltiSnip
-" Plug 'SirVer/ultisnips'
-
-" Postgres
+" Postgres syntax highlighting
 Plug 'lifepillar/pgsql.vim'
 
 " split/join
 Plug 'AndrewRadev/splitjoin.vim'
-
-" Plug 'scrooloose/syntastic'
 
 " Autogenerate pair ({[
 Plug 'jiangmiao/auto-pairs'
@@ -74,13 +54,15 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rbenv'
 Plug 'tpope/vim-rails'
-" DB extension
-Plug 'tpope/vim-dadbod'
-Plug 'vim-scripts/dbext.vim'
 
-" Fuzzy search
+" Status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Fuzzy search - both lines needed
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+
 " Testing
 Plug 'keith/rspec.vim'
 Plug 'janko-m/vim-test'
@@ -94,30 +76,36 @@ Plug 'jremmen/vim-ripgrep'
 " markdown folding
 Plug 'plasticboy/vim-markdown'
 
-Plug 'cespare/vim-toml'
-
+" Terraform command
 Plug 'hashivim/vim-terraform'
 
 " align text
 Plug 'godlygeek/tabular'
 
+" snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+
+" Syntax highlighting for many languages
+Plug 'sheerun/vim-polyglot'
+
 " HCL syntax highlighting
 Plug 'jvirtanen/vim-hcl'
 
-" JSX syntax highlighting
-Plug 'MaxMEllon/vim-jsx-pretty'
-
-Plug 'nanotech/jellybeans.vim'
+" Frontend completion engine
+Plug 'mattn/emmet-vim'
 
 " Conqour of Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()
 
 " Options/Customisations {{{1
 " Appearance{{{2
 
-set background=dark 
-" set background=light
+" set background=dark 
+set background=light
 
 " This configuration option should be placed before `colorscheme everforest`.
 " Available values: 'hard', 'medium'(default), 'soft'
@@ -169,16 +157,16 @@ else
 end
 " Status bar {{{3
 
-set laststatus=2
-set statusline=
-set statusline+=%.40F             " file name
-set statusline+=%2*%m%*           " modified
-set statusline+=\ \-\ Buffer:\ %n " buffer number
-set statusline+=%=                " buffer number
-set statusline+=\ col\ %c         " column
-set statusline+=\ \-\ line\ %l    " line number
-" set statusline+=\ \-\ %L           " total lines
-set statusline+=\ \-\ %p%%         " percentage through file
+" set laststatus=2
+" set statusline=
+" set statusline+=%.40F             " file name
+" set statusline+=%2*%m%*           " modified
+" set statusline+=\ \-\ Buffer:\ %n " buffer number
+" set statusline+=%=                " buffer number
+" set statusline+=\ col\ %c         " column
+" set statusline+=\ \-\ line\ %l    " line number
+" " set statusline+=\ \-\ %L           " total lines
+" set statusline+=\ \-\ %p%%         " percentage through file
 
 
 " Behaviour {{{2
@@ -228,15 +216,8 @@ set autowrite                      " save when calling make/next/etc
 set tags^=./.git/tags;             " tags file for Fugative
 
 " Plugin options {{{1
-" Go related
-let g:go_fmt_command = "goimports"
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_def_mode='gopls'
-let g:go_info_mode='gopls'
+" let g:airline_statusline_ontop=1
+let g:airline#extensions#tabline#enabled = 1
 
 " FZF related
 " match theme colours
@@ -261,21 +242,32 @@ let g:rg_command = 'rg --vimgrep --hidden --glob !vendor --glob !.git'
 " testing (open vim terminal when running tests)
 let test#strategy = "vimterminal"
 
-" Default SQL type
-let g:sql_type_default = 'pgsql'
-let g:dadbod_manage_dbext = 1
-
-" Markdown
+" Markdown plugin
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_folding_disabled = 1
 
-" terraform
+" terraform plugin
 let g:terraform_fmt_on_save=1
 
+" typescript coc-extenstion
 let g:typescript_indent_disable = 1
-let g:vimspector_enable_mappings = 'HUMAN'
+
 let g:coc_disable_transparent_cursor=1
+let g:coc_global_extensions = [
+      \'coc-css',
+      \'coc-docker',
+      \'coc-emmet', 
+      \'coc-eslint',
+      \'coc-json', 
+      \'coc-markdownlint',
+      \'coc-prettier',
+      \'coc-sh',
+      \'coc-sql',
+      \'coc-toml',
+      \'coc-tsserver', 
+      \'coc-yaml',
+      \]
 " Mappings {{{1
 
 let mapleader="," " My leader key
@@ -300,17 +292,28 @@ nnoremap <Leader>tn :TestNearest<CR>
 nnoremap <Leader>tl :TestLast<CR>
 nnoremap <Leader>tf :TestFile<CR>
 
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
+
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Use <enter> to select from pop up coc menu
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-@> coc#refresh()
+
 " Functions {{{1
 " TrimWhiteSpace trims the whitespace from the ends of lines
 fun! TrimWhiteSpace()
