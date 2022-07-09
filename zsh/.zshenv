@@ -1,0 +1,55 @@
+##
+# ~/.zshenv is sourced before every interactive and non-interactive shell
+# as such any zsh specific environment config should go in this file
+##
+
+##
+# ENVIRONMENT VARIABLES
+#
+
+# FZF plugin
+# find all, including hidden, using ripgrep
+export FZF_DEFAULT_COMMAND='rg --hidden --iglob !.git --files-with-matches ""'
+
+# Go
+export GOPATH=$HOME/go
+export GOPRIVATE=github.com/deliveroo
+
+# Misc
+export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
+export NVM_DIR=$HOME/.nvm
+export RI="--format ansi --width 70"
+export EDITOR=nvim
+export GPG_TTY=$(tty)
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Build PATH
+export PATH=/usr/local/opt/gettext/bin
+export PATH=$PATH:$HOME/.rbenv/plugins/ruby-build/bin
+export PATH=$PATH:$HOME/.rbenv/bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/usr/local/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
+export PATH=$HOME/.tfenv/bin:$PATH
+
+# common directories
+export code=$HOME/code
+export dots=$HOME/dotfiles
+export roo=$code/roo
+export orderweb=$code/roo/orderweb
+CDPATH=.:$roo
+
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+# autostart tmux when opening terminal
+export ZSH_TMUX_AUTOSTART=true
+
+# Themes
+# ZSH_THEME="minimal"
+# ZSH_THEME="clean"
+ZSH_THEME="af-magic"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+COMPLETION_WAITING_DOTS="true"

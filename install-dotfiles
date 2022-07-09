@@ -1,0 +1,18 @@
+#!/bin/bash
+stow_dirs=( "irb" "pry" "tmux" "zsh" "git")
+
+if ! type stow >/dev/null; then
+  echo "stow is not installed, please install and retry" >&2
+  exit 1
+fi
+
+for i in "${stow_dirs[@]}"
+do
+  echo "intalling ${i}"
+  stow --dotfiles $i
+done
+
+echo "installing nvim"
+conf_dir=$HOME/.config/nvim
+[[ ! -d $conf_dir ]] && mkdir --parents $conf_dir
+stow --target $HOME/.config/nvim nvim

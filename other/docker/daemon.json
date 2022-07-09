@@ -1,0 +1,4 @@
+{
+  "data-root": "/home/skip/.docker_data",
+  "storage-driver": "overlay2"
+}
