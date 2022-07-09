@@ -1,3 +1,0 @@
-*.rb diff=ruby
-*.rake diff=ruby
-*.go diff=go
