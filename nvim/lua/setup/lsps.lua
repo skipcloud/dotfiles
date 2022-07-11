@@ -91,3 +91,9 @@ lspconfig.cssls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+
+-- Terraform
+lspconfig.terraformls.setup{
+	on_attach = on_attach,
+	capabilities = capabilities
+}

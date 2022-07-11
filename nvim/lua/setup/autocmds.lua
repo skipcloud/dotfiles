@@ -35,6 +35,11 @@ create("BufWritePre", {
   callback = M.TrimWhiteSpace
 })
 
+create("BufWritePre", {
+	group = my_group,
+	pattern = "*.tf",
+	callback = vim.lsp.buf.formatting_sync
+})
 
 -- ^N causes included files to be read which slows down
 -- autocomplete a hell of a lot
