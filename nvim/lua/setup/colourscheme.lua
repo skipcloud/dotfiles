@@ -1,5 +1,4 @@
-local set = vim.api.nvim_set_var 
-local hightlight = vim.api.nvim_set_hl
+local set = vim.api.nvim_set_var
 
 ---- Set colorscheme options before hand or the colours won't work correctly
 --
