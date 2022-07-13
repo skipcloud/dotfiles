@@ -28,9 +28,10 @@ vim.g.fzf_colors = {
 }
 vim.g.UtilSnipsEditSplit="vertical"
 vim.g.UltiSnipsExpandTrigger="<tab>"
-vim.g.UltiSnipsJumpForwardTrigger="<c-j>"
 vim.g.UltiSnipsJumpBackwardTrigger="<c-h>"
 vim.g.polyglot_disabled = {"sensible"}
+vim.g.hardtime_default_on = true
+vim.g.hardtime_ignore_buffer_patterns = {"NERD.*"}
 
 --[[
 --  Load the plugins
@@ -58,6 +59,10 @@ cmd("Plug 'SirVer/ultisnips'")
 cmd("Plug 'honza/vim-snippets'")
 
 -- And the rest...
+
+-- stop repeating keys
+cmd("Plug 'takac/vim-hardtime'")
+
 -- colourschemes
 cmd("Plug 'altercation/vim-colors-solarized'")
 cmd("Plug 'sainnhe/everforest'")
