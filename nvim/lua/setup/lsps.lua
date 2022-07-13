@@ -69,7 +69,6 @@ lspconfig.sumneko_lua.setup {
 			},
 		},
 	},
-	cmd = { "/home/skip/src/lsps/lua-language-server/bin/lua-language-server", "--logpath=~/sumneko.log", "--rpclog=true" },
 	on_attach = on_attach,
 	capabilities = capabilities
 }
