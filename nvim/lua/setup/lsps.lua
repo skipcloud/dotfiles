@@ -96,3 +96,9 @@ lspconfig.terraformls.setup{
 	on_attach = on_attach,
 	capabilities = capabilities
 }
+
+-- Python
+lspconfig.pylsp.setup{
+	on_attach = on_attach,
+	capabilities = capabilities
+}
