@@ -1,4 +1,5 @@
 #!/bin/bash
+conf_dir=$HOME/.config
 stow_dirs=( "irb" "pry" "tmux" "zsh" "git")
 
 if ! type stow >/dev/null; then
@@ -13,6 +14,10 @@ do
 done
 
 echo "installing nvim"
-conf_dir=$HOME/.config/nvim
-[[ ! -d $conf_dir ]] && mkdir --parents $conf_dir
-stow --target $HOME/.config/nvim nvim
+nvim_dir=$conf_dir/nvim
+
+[[ ! -d $nvim_dir ]] && mkdir --parents $nvim_dir
+stow --target $nvim_dir nvim
+
+echo "installing pycodestyle"
+stow --target $conf_dir pycodestyle
