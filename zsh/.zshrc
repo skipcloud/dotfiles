@@ -30,7 +30,7 @@ alias vim=nvim
 alias view='nvim -R'
 
 # quickly edit rc files
-alias vimrc='vim $HOME/.vim/vimrc'
+alias vimrc='vim $HOME/.config/nvim/init.lua'
 alias zshrc='vim $HOME/.zshrc'
 
 # Git
@@ -164,6 +164,9 @@ Definition: $def
 $note
 END
 }
+
+# add roo ssh key
+ssh-add ~/.ssh/alan.gibson > /dev/null
 
 # load secrets
 [ -d ~/secrets ] && source ~/secrets/.secretrc
