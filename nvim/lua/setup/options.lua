@@ -27,6 +27,7 @@ wo.number = true
 wo.linebreak = true
 wo.wrap = false
 wo.concealcursor="n" -- mode in which concealed text is revealed
+wo.relativenumber = true
 
 -- Buffer options
 bo.softtabstop = 2
