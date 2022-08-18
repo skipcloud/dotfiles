@@ -166,7 +166,7 @@ END
 }
 
 # add roo ssh key
-ssh-add ~/.ssh/alan.gibson > /dev/null
+ssh-add ~/.ssh/alan.gibson 2&> /dev/null
 
 # load secrets
 [ -d ~/secrets ] && source ~/secrets/.secretrc
