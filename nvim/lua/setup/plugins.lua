@@ -87,6 +87,7 @@ cmd("Plug 'scrooloose/nerdtree'")
 
 -- git
 cmd("Plug 'tpope/vim-fugitive'")
+cmd("Plug 'tpope/vim-rhubarb'")
 
 -- change surrounding brackets/quotes/parens etc
 cmd("Plug 'tpope/vim-surround'")
