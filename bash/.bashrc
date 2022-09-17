@@ -239,6 +239,7 @@ export FZF_DEFAULT_COMMAND='rg --hidden --iglob !.git --files-with-matches ""'
 # Go
 export GOPATH=$HOME/go
 export GOPRIVATE=github.com/deliveroo
+export GO111MODULE=auto
 export deliveroo_gopath=$GOPATH/src/github.com/deliveroo
 
 # Misc
@@ -295,7 +296,7 @@ export PROJECT_DIRS=($deliveroo_gopath $code/roo $code/personal)
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # set permissions
-umask 027
+umask 022
 
 # source oo the Go version manager
 # http://www.github.com/hit9/oo

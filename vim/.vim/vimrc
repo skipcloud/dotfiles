@@ -176,6 +176,7 @@ set backspace=start,eol,indent " allow backspace to delete auto indent, newlines
 set history=200                " keep 200 lines of command line history
 set splitright                 " vertical split to the right
 set splitbelow                 " horizontal split below
+set nowrap                     " don't wrap lines
 set linebreak                  " wrap on whitespace
 set clipboard=unnamedplus      " Ensure clipboard works on linux
 set ignorecase                 " ignore case in search patterns
@@ -259,6 +260,16 @@ let g:terraform_fmt_on_save=1
 
 " Snipmate deprecated something
 let g:snipMate = { 'snippet_version' : 1 }
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascriptreact_checkers = ['jsxhint']
 " Mappings {{{1
 
 let mapleader="," " My leader key

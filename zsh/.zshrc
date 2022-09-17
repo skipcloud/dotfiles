@@ -7,15 +7,18 @@
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   aws
+  colored-man-pages
+  docker
   encode64
   git
-  colored-man-pages
+  golang
   rails
   rake
   rbenv
   ruby
   themes
   tmux
+  ufw
   zsh_reload
 )
 
@@ -23,7 +26,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # load FZF key bindings
-# source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
 
 # source ~/.bashrc as the majority of my config is done in there.
 # This is so I can switch between bash and zsh and still have 
@@ -33,5 +36,7 @@ source $ZSH/oh-my-zsh.sh
 # completion init
 autoload -U compinit
 compinit -i
+complete -C '/usr/local/bin/aws_completer' aws
 
+source <(kubectl completion zsh)
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
