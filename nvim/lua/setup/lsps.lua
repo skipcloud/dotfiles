@@ -37,7 +37,7 @@ local on_attach = function(_, bufnr)
 end
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lspconfig = require 'lspconfig'
 
 -- Lua
@@ -76,13 +76,22 @@ lspconfig.sumneko_lua.setup {
 -- Ruby
 lspconfig.solargraph.setup {
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
+	cmd = { "bundle", "exec", "solargraph", "stdio" }
 }
 
 -- Typescript
 lspconfig.tsserver.setup {
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
+	settings = {
+		typescript = {
+			format = {
+				convertTabsToSpaces = true,
+				indentSize = 4
+			}
+		}
+	}
 }
 
 -- CSS
@@ -99,6 +108,12 @@ lspconfig.terraformls.setup{
 
 -- Python
 lspconfig.pylsp.setup{
+	on_attach = on_attach,
+	capabilities = capabilities
+}
+
+-- Go
+lspconfig.gopls.setup{
 	on_attach = on_attach,
 	capabilities = capabilities
 }
