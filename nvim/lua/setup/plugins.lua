@@ -32,6 +32,7 @@ vim.g.UltiSnipsJumpBackwardTrigger="<c-h>"
 vim.g.polyglot_disabled = {"sensible"}
 vim.g.hardtime_default_on = true
 vim.g.hardtime_ignore_buffer_patterns = {"NERD.*"}
+vim.g.hardtime_ignore_quickfix = true
 
 --[[
 --  Load the plugins
@@ -121,7 +122,7 @@ cmd("Plug 'janko-m/vim-test'")
 cmd("Plug 'Yggdroot/indentLine'")
 
 -- replace grep
-cmd("Plug 'jremmen/vim-ripgrep'")
+-- cmd("Plug 'jremmen/vim-ripgrep'")
 
 -- markdown folding
 cmd("Plug 'plasticboy/vim-markdown'")
