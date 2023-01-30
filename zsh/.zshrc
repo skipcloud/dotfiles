@@ -32,6 +32,9 @@ alias view='nvim -R'
 # quickly edit rc files
 alias vimrc='vim $HOME/.config/nvim/init.lua'
 alias zshrc='vim $HOME/.zshrc'
+alias zshenv='vim $HOME/.zshenv'
+
+alias saml-gsts='command gsts'
 
 # Git
 # these could be put into .gitconfig but I prefer not
