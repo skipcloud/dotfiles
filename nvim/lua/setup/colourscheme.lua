@@ -16,11 +16,11 @@ set("gruvbox_contrast_light", "medium")
 ---- Themes that don't respect the background option
 -- 
 -- colorscheme nightfox
-vim.cmd "colorscheme dayfox"
--- colorscheme dawnfox
+-- vim.cmd "colorscheme dayfox"
+-- vim.cmd "colorscheme dawnfox"
 -- colorscheme duskfox
 -- colorscheme nordfox
--- colorscheme terafox
+vim.cmd "colorscheme terafox"
 
 ---- Dark and Light themes 
 -- -----------------------
