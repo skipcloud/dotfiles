@@ -21,6 +21,7 @@ o.ttimeoutlen = 20
 o.directory = "/tmp//," .. o.directory
 o.autowrite = true
 o.tags = "./.git/tags," .. o.tags
+o.completeopt = "menu"
 
 -- Window options
 wo.number = true
