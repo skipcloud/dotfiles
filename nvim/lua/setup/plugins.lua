@@ -26,13 +26,17 @@ vim.g.fzf_colors = {
 	spinner = { "fg", "Label" },
 	header  = { "fg", "Comment" },
 }
-vim.g.UtilSnipsEditSplit="vertical"
-vim.g.UltiSnipsExpandTrigger="<tab>"
-vim.g.UltiSnipsJumpBackwardTrigger="<c-h>"
-vim.g.polyglot_disabled = {"sensible"}
+vim.g.UtilSnipsEditSplit = "vertical"
+vim.g.UltiSnipsExpandTrigger = "<tab>"
+vim.g.UltiSnipsJumpBackwardTrigger = "<c-h>"
+vim.g.polyglot_disabled = { "sensible" }
 vim.g.hardtime_default_on = true
-vim.g.hardtime_ignore_buffer_patterns = {"NERD.*"}
+vim.g.hardtime_ignore_buffer_patterns = { "NERD.*" }
 vim.g.hardtime_ignore_quickfix = true
+vim.g.indent_blankline_char = "╷"
+vim.g.indent_blankline_char_blankline = ""
+vim.g.indent_blankline_use_treesitter = true
+vim.g.indent_blankline_show_first_indent_level = false
 
 --[[
 --  Load the plugins
@@ -54,6 +58,9 @@ cmd("Plug 'hrsh7th/cmp-path'")
 cmd("Plug 'hrsh7th/cmp-cmdline'")
 cmd("Plug 'hrsh7th/nvim-cmp'")
 cmd("Plug 'quangnguyen30192/cmp-nvim-ultisnips'")
+
+-- indent markers
+cmd("Plug 'lukas-reineke/indent-blankline.nvim'")
 
 -- snippets
 cmd("Plug 'SirVer/ultisnips'")
@@ -118,9 +125,6 @@ cmd("Plug 'Asheq/close-buffers.vim'")
 cmd("Plug 'keith/rspec.vim'")
 cmd("Plug 'janko-m/vim-test'")
 
--- indent markers
-cmd("Plug 'Yggdroot/indentLine'")
-
 -- replace grep
 -- cmd("Plug 'jremmen/vim-ripgrep'")
 
@@ -183,9 +187,14 @@ require 'nvim-treesitter.configs'.setup {
 			node_incremental = "grn",
 			scope_incremental = "grc",
 			node_decremental = "grm",
-	    },
+		},
 	},
 	textobjects = { enable = true }
+}
+
+require("indent_blankline").setup {
+	show_current_context = false,
+	show_current_context_start = false,
 }
 
 local cmp = require 'cmp' or {}
@@ -212,7 +221,7 @@ cmp.setup({
 		{ name = 'ultisnips' },
 	}, {
 		{ name = 'buffer' },
-	},{
+	}, {
 		{ name = 'path' }
 	})
 })
@@ -234,4 +243,3 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
-
