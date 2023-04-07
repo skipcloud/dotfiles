@@ -19,8 +19,8 @@ local on_attach = function(_, bufnr)
 	-- Mappings.
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
-	vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
 	vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+	vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol, bufopts)
 	vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
 	vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
 	vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
@@ -43,7 +43,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protoc
 local lspconfig = require 'lspconfig'
 
 -- Lua
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
 	settings = {
 		Lua = {
 			runtime = {
@@ -103,19 +103,30 @@ lspconfig.cssls.setup {
 }
 
 -- Terraform
-lspconfig.terraformls.setup{
+lspconfig.terraformls.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
 
 -- Python
-lspconfig.pylsp.setup{
+lspconfig.pylsp.setup {
 	on_attach = on_attach,
 	capabilities = capabilities
 }
 
 -- Go
-lspconfig.gopls.setup{
+lspconfig.gopls.setup {
 	on_attach = on_attach,
-	capabilities = capabilities
+	capabilities = capabilities,
+	settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+				useany = true,
+				unusedvariable = true,
+			},
+			staticcheck = true,
+			gofumpt = true,
+		}
+	}
 }
