@@ -46,7 +46,7 @@ alias gdc='git diff --cached'
 alias gfrbm='git fetch --prune origin $(git_main_branch):$(git_main_branch) && git rebase origin/$(git_main_branch)'
 alias gmne='git merge --no-edit'
 alias gpsu='git push --set-upstream origin $(git_current_branch)'
-alias grbim='git rebase -i origin/master'
+alias grbim='git rebase -i origin/$(git_main_branch)'
 alias gst="git status -sb"
 
 # SSM into an EC2 instance 
