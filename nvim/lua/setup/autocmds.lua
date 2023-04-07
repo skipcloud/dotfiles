@@ -16,6 +16,13 @@ create("FileType", {
   pattern = "gitcommit",
   command = "setlocal spell"
 })
+create("BufWritePre", {
+  group = my_group,
+  pattern = "*.go",
+  callback = function()
+    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+  end
+})
 
 create("FileType", {
   group = my_group,
