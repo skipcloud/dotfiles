@@ -42,10 +42,11 @@ create("BufWritePre", {
   callback = M.TrimWhiteSpace
 })
 
+-- Format on save if there is an LSP Server set up
 create("BufWritePre", {
-	group = my_group,
-	pattern = "*.tf",
-	callback = vim.lsp.buf.formatting_sync
+  group = my_group,
+  pattern = "*",
+  callback = vim.lsp.buf.formatting_sync
 })
 
 -- ^N causes included files to be read which slows down
