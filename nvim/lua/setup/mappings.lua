@@ -1,4 +1,6 @@
-require "custom.functions"
+local fns = "custom.functions"
+package.loaded[fns] = nil
+require(fns)
 
 --[[
 --  General Mappings, see setup/lsps.lua for LSP mappings
@@ -15,6 +17,7 @@ set("i", "jj", "<esc>")
 
 -- Custom Functions
 set("n", "<Leader>w", M.TrimWhiteSpace)
+set("n", "<Leader>r", M.ReloadConfig)
 
 -- FZF
 set(map, "<C-p>", ":FZF<cr>")

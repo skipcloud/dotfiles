@@ -7,4 +7,10 @@ function M.TrimWhiteSpace()
 	vim.fn.winrestview(save)
 end
 
+-- Bet you can't work out what this one does
+function M.ReloadConfig()
+	dofile(vim.env.MYVIMRC)
+	print("Config reloaded")
+end
+
 return M

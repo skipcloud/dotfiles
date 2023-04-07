@@ -7,9 +7,18 @@ if fn.empty(fn.glob(fn.stdpath("data") .. '/site/autoload/plug.vim')) == 1 then
 	]])
 end
 
-require "setup.options"
-require "setup.plugins"
-require "setup.colourscheme"
-require "setup.mappings"
-require "setup.lsps"
-require "setup.autocmds"
+local modules = {
+	"setup.options",
+	"setup.plugins",
+	"setup.colourscheme",
+	"setup.mappings",
+	"setup.lsps",
+	"setup.autocmds",
+}
+
+-- This loop allows me to source this file and reload
+-- nvim config without restarting
+for _, m in ipairs(modules) do
+	package.loaded[m] = nil
+	require(m)
+end
