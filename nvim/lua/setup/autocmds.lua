@@ -47,7 +47,8 @@ create("BufWritePre", {
   group = my_group,
   pattern = "*",
   callback = function()
-    vim.lsp.buf.format { async = true }
+    -- sync is fine
+    vim.lsp.buf.format()
   end
 })
 
