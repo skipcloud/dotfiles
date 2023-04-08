@@ -52,6 +52,7 @@ cmd("Plug 'junegunn/vim-plug'")
 
 -- Neovim specific plugins
 cmd("Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate' }")
+cmd("Plug 'nvim-treesitter/nvim-treesitter-textobjects'")
 cmd("Plug 'EdenEast/nightfox.nvim'")
 cmd("Plug 'neovim/nvim-lspconfig'")
 
@@ -142,6 +143,7 @@ require 'nvim-treesitter.configs'.setup {
   -- List of parsers to ignore installing (for "all")
   -- ignore_install = { "javascript" },
 
+  -- highlight module
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
@@ -158,16 +160,42 @@ require 'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
-  incremental_selection = {
+  -- incremental_selection module
+  incremental_selection = { enable = false },
+
+  -- textobjects module
+  textobjects = {
     enable = true,
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
-  },
-  textobjects = { enable = true }
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = { query = "@function.outer", desc = "Select around function" },
+        ["if"] = { query = "@function.inner", desc = "Select inside function" },
+        ["ac"] = { query = "@class.outer", desc = "Select around class/struct" },
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+        -- You can also use captures from other query groups like `locals.scm`
+        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      selection_modes = {
+        ['@parameter.outer'] = 'v', -- charwise
+        ['@function.outer'] = 'V', -- linewise
+        ['@class.outer'] = '<c-v>', -- blockwise
+      },
+      include_surrounding_whitespace = false
+    }
+  }
 }
 
 require("indent_blankline").setup {
@@ -192,11 +220,14 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-Space>'] = cmp.mapping.complete(), -- start completion, useful when you've closed the menu
     ['<C-e>'] = cmp.mapping.abort(),
     ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
   }),
   sources = cmp.config.sources({
+    -- keeping sources in separate groups like this instead of
+    -- in a flat array means you can avoid needing to add a
+    -- `group_index` to each source.
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
   }, {
