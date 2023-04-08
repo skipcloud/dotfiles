@@ -9,22 +9,21 @@ local fn  = vim.fn
 --  Plugin Options
 --]]
 
-vim.g.terraform_fmt_on_save = 1
 vim.g.rg_command = "rg --vimgrep --hidden --glob !vendor --glob !.git"
 vim.g.fzf_colors = {
-	fg      = { "fg", "Normal" },
-	bg      = { "bg", "Normal" },
-	hl      = { "fg", "Comment" },
-	["fg+"] = { "fg", "CursorLine", "CursorColumn", "Normal" },
-	["bg+"] = { "bg", "CursorLine", "CursorColumn" },
-	["hl+"] = { "fg", "Statement" },
-	info    = { "fg", "PreProc" },
-	border  = { "fg", "Ignore" },
-	prompt  = { "fg", "Conditional" },
-	pointer = { "fg", "Exception" },
-	marker  = { "fg", "Keyword" },
-	spinner = { "fg", "Label" },
-	header  = { "fg", "Comment" },
+  fg      = { "fg", "Normal" },
+  bg      = { "bg", "Normal" },
+  hl      = { "fg", "Comment" },
+  ["fg+"] = { "fg", "CursorLine", "CursorColumn", "Normal" },
+  ["bg+"] = { "bg", "CursorLine", "CursorColumn" },
+  ["hl+"] = { "fg", "Statement" },
+  info    = { "fg", "PreProc" },
+  border  = { "fg", "Ignore" },
+  prompt  = { "fg", "Conditional" },
+  pointer = { "fg", "Exception" },
+  marker  = { "fg", "Keyword" },
+  spinner = { "fg", "Label" },
+  header  = { "fg", "Comment" },
 }
 vim.g.UtilSnipsEditSplit = "vertical"
 vim.g.UltiSnipsExpandTrigger = "<tab>"
@@ -42,6 +41,7 @@ vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_first_indent_level = false
 
 vim.g.gitblame_enabled = false
+
 --[[
 --  Load the plugins
 --]]
@@ -67,7 +67,7 @@ cmd("Plug 'quangnguyen30192/cmp-nvim-ultisnips'")
 cmd("Plug 'lukas-reineke/indent-blankline.nvim'")
 
 -- mini, which contains many sub-modules
-cmd("Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }")
+-- cmd("Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }")
 
 -- split/join
 cmd("Plug 'Wansmer/treesj'")
@@ -108,10 +108,6 @@ cmd("Plug 'tpope/vim-repeat'")
 -- Commenting and uncommenting stuff
 cmd("Plug 'tpope/vim-commentary'")
 
-cmd("Plug 'tpope/vim-bundler'")
-cmd("Plug 'tpope/vim-rbenv'")
-cmd("Plug 'tpope/vim-rails'")
-
 -- Status bar
 cmd("Plug 'vim-airline/vim-airline'")
 cmd("Plug 'vim-airline/vim-airline-themes'")
@@ -123,27 +119,14 @@ cmd("Plug 'junegunn/fzf.vim'")
 -- Close buffers
 cmd("Plug 'Asheq/close-buffers.vim'")
 
--- replace grep
--- cmd("Plug 'jremmen/vim-ripgrep'")
+-- align text
+cmd("Plug 'godlygeek/tabular'")
 
 -- markdown folding
 cmd("Plug 'plasticboy/vim-markdown'")
 
--- Terraform command
-cmd("Plug 'hashivim/vim-terraform'")
-
--- align text
-cmd("Plug 'godlygeek/tabular'")
-
-
 -- JSX syntax highlighting
 cmd("Plug 'MaxMEllon/vim-jsx-pretty'")
-
--- Syntax highlighting for many languages
--- cmd("Plug 'sheerun/vim-polyglot'")
-
--- HCL syntax highlighting
--- cmd("Plug 'jvirtanen/vim-hcl'")
 
 fn["plug#end"]()
 
@@ -151,45 +134,45 @@ fn["plug#end"]()
 --  Configure neovim plugins
 --]]
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = "all",
+  ensure_installed = "all",
 
-	-- Install parsers synchronously (only applied to `ensure_installed`)
-	sync_install = false,
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
 
-	-- List of parsers to ignore installing (for "all")
-	-- ignore_install = { "javascript" },
+  -- List of parsers to ignore installing (for "all")
+  -- ignore_install = { "javascript" },
 
-	highlight = {
-		-- `false` will disable the whole extension
-		enable = true,
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
 
-		-- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-		-- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-		-- the name of the parser)
-		-- list of language that will be disabled
-		-- disable = { "c", "rust" },
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    -- disable = { "c", "rust" },
 
-		-- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-		-- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-		-- Using this option may slow down your editor, and you may see some duplicate highlights.
-		-- Instead of true it can also be a list of languages
-		additional_vim_regex_highlighting = false,
-	},
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "gnn",
-			node_incremental = "grn",
-			scope_incremental = "grc",
-			node_decremental = "grm",
-		},
-	},
-	textobjects = { enable = true }
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  textobjects = { enable = true }
 }
 
 require("indent_blankline").setup {
-	show_current_context = false,
-	show_current_context_start = false,
+  show_current_context = false,
+  show_current_context_start = false,
 }
 
 require('treesj').setup {}
@@ -197,46 +180,46 @@ require('treesj').setup {}
 local cmp = require 'cmp' or {}
 
 cmp.setup({
-	snippet = {
-		expand = function(args)
-			vim.fn["UltiSnips#Anon"](args.body)
-		end,
-	},
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	mapping = cmp.mapping.preset.insert({
-		['<C-b>'] = cmp.mapping.scroll_docs(-4),
-		['<C-f>'] = cmp.mapping.scroll_docs(4),
-		['<C-Space>'] = cmp.mapping.complete(),
-		['<C-e>'] = cmp.mapping.abort(),
-		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-	}),
-	sources = cmp.config.sources({
-		{ name = 'nvim_lsp' },
-		{ name = 'ultisnips' },
-	}, {
-		{ name = 'buffer' },
-	}, {
-		{ name = 'path' }
-	})
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body)
+    end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' },
+  }, {
+    { name = 'buffer' },
+  }, {
+    { name = 'path' }
+  })
 })
 
 -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline('/', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = {
-		{ name = 'buffer' }
-	}
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = 'path' }
-	}, {
-		{ name = 'cmdline' }
-	})
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })

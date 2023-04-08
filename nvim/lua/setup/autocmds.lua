@@ -46,7 +46,9 @@ create("BufWritePre", {
 create("BufWritePre", {
   group = my_group,
   pattern = "*",
-  callback = vim.lsp.buf.formatting_sync
+  callback = function()
+    vim.lsp.buf.format { async = true }
+  end
 })
 
 -- ^N causes included files to be read which slows down
