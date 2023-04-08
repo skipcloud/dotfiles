@@ -2,6 +2,25 @@
 --  Language Server config and mappings
 --]]
 
+-- Handlers
+-- Alter how the hover and signature help floating windows look
+-- and operate
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+  vim.lsp.handlers.hover,
+  {
+    border = "rounded",
+    focusable = false
+  }
+)
+
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+  vim.lsp.handlers.signature_help,
+  {
+    border = "rounded",
+    focusable = false
+  }
+)
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
