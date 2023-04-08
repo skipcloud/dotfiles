@@ -27,8 +27,8 @@ set("n", "<Leader>f", ":NERDTreeFind<cr>")
 set(map, "<Leader>q", ":NERDTreeToggle<cr>")
 
 -- Git shortcuts
-set("n", "<Leader>gb", ":Git blame<cr>")
-set({ "n", "v" }, "<Leader>gbr", ":GBrowse<cr>")
+set("n", "<Leader>gb", ":GitBlameToggle<cr>")
+set("n", "<Leader>gbr", ":GitBlameOpenFileURL<cr>")
 
 -- vim-test plugin shortcuts
 set("n", "<Leader>tn", ":TestNearest<cr>")

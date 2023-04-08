@@ -29,15 +29,19 @@ vim.g.fzf_colors = {
 vim.g.UtilSnipsEditSplit = "vertical"
 vim.g.UltiSnipsExpandTrigger = "<tab>"
 vim.g.UltiSnipsJumpBackwardTrigger = "<c-h>"
+
 vim.g.polyglot_disabled = { "sensible" }
+
 vim.g.hardtime_default_on = true
 vim.g.hardtime_ignore_buffer_patterns = { "NERD.*" }
 vim.g.hardtime_ignore_quickfix = true
+
 vim.g.indent_blankline_char = "╷"
 vim.g.indent_blankline_char_blankline = ""
 vim.g.indent_blankline_use_treesitter = true
 vim.g.indent_blankline_show_first_indent_level = false
 
+vim.g.gitblame_enabled = false
 --[[
 --  Load the plugins
 --]]
@@ -62,9 +66,18 @@ cmd("Plug 'quangnguyen30192/cmp-nvim-ultisnips'")
 -- indent markers
 cmd("Plug 'lukas-reineke/indent-blankline.nvim'")
 
+-- mini, which contains many sub-modules
+cmd("Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }")
+
+-- split/join
+cmd("Plug 'Wansmer/treesj'")
+
 -- snippets
 cmd("Plug 'SirVer/ultisnips'")
 cmd("Plug 'honza/vim-snippets'")
+
+-- git
+cmd("Plug 'f-person/git-blame.nvim'")
 
 -- And the rest...
 
@@ -72,11 +85,7 @@ cmd("Plug 'honza/vim-snippets'")
 cmd("Plug 'takac/vim-hardtime'")
 
 -- colourschemes
-cmd("Plug 'altercation/vim-colors-solarized'")
 cmd("Plug 'sainnhe/everforest'")
-cmd("Plug 'junegunn/vim-peekaboo'")
-cmd("Plug 'jparise/vim-graphql'")
-cmd("Plug 'vim-ruby/vim-ruby'")
 cmd("Plug 'morhetz/gruvbox'")
 
 -- css colours in source code
@@ -84,18 +93,11 @@ cmd("Plug 'ap/vim-css-color'")
 -- Postgres syntax highlighting
 cmd("Plug 'lifepillar/pgsql.vim'")
 
--- split/join
-cmd("Plug 'AndrewRadev/splitjoin.vim'")
-
 -- Autogenerate pair ({[
 cmd("Plug 'jiangmiao/auto-pairs'")
 
 -- Navigation tree
 cmd("Plug 'scrooloose/nerdtree'")
-
--- git
-cmd("Plug 'tpope/vim-fugitive'")
-cmd("Plug 'tpope/vim-rhubarb'")
 
 -- change surrounding brackets/quotes/parens etc
 cmd("Plug 'tpope/vim-surround'")
@@ -121,10 +123,6 @@ cmd("Plug 'junegunn/fzf.vim'")
 -- Close buffers
 cmd("Plug 'Asheq/close-buffers.vim'")
 
--- Testing
-cmd("Plug 'keith/rspec.vim'")
-cmd("Plug 'janko-m/vim-test'")
-
 -- replace grep
 -- cmd("Plug 'jremmen/vim-ripgrep'")
 
@@ -142,13 +140,10 @@ cmd("Plug 'godlygeek/tabular'")
 cmd("Plug 'MaxMEllon/vim-jsx-pretty'")
 
 -- Syntax highlighting for many languages
-cmd("Plug 'sheerun/vim-polyglot'")
+-- cmd("Plug 'sheerun/vim-polyglot'")
 
 -- HCL syntax highlighting
-cmd("Plug 'jvirtanen/vim-hcl'")
-
--- Frontend completion engine
-cmd("Plug 'mattn/emmet-vim'")
+-- cmd("Plug 'jvirtanen/vim-hcl'")
 
 fn["plug#end"]()
 
@@ -196,6 +191,8 @@ require("indent_blankline").setup {
 	show_current_context = false,
 	show_current_context_start = false,
 }
+
+require('treesj').setup {}
 
 local cmp = require 'cmp' or {}
 
