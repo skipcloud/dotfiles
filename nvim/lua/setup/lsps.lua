@@ -2,6 +2,10 @@
 --  Language Server config and mappings
 --]]
 
+-- stop the logs growing, no need to log unless
+-- there is a need to debug
+vim.lsp.set_log_level 'off'
+
 -- Handlers
 -- Alter how the hover and signature help floating windows look
 -- and operate
