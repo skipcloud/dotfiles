@@ -16,13 +16,6 @@ create("FileType", {
   pattern = "gitcommit",
   command = "setlocal spell"
 })
-create("BufWritePre", {
-  group = my_group,
-  pattern = "*.go",
-  callback = function()
-    vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
-  end
-})
 
 create("FileType", {
   group = my_group,
@@ -46,9 +39,14 @@ create("BufWritePre", {
 create("BufWritePre", {
   group = my_group,
   pattern = "*",
-  callback = function()
+  callback = function(ev)
+    -- TODO: clean this up
+    local ft = vim.filetype.match({ buf = ev.buf })
+    if ft == "go" or ft == "lua" then
+      return
+    end
     -- sync is fine
-    vim.lsp.buf.format()
+    vim.lsp.buf.format({ async = false })
   end
 })
 
