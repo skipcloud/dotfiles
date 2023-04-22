@@ -13,11 +13,13 @@ do
   stow --dotfiles $i
 done
 
-echo "installing nvim"
-nvim_dir=$conf_dir/nvim
-
-[[ ! -d $nvim_dir ]] && mkdir --parents $nvim_dir
-stow --target $nvim_dir nvim
+# Install XDG config stuff
+xdg_dirs=("nvim" "dlv")
+for dir in ${xdg_dirs[@]} ; do
+	echo "Installing $dir"
+	[[ ! -d $conf_dir/$dir ]] && mkdir --parents $conf_dir/$dir
+	stow --target $conf_dir/$dir $dir
+done
 
 echo "installing pycodestyle"
 stow --target $conf_dir pycodestyle
