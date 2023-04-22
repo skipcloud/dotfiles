@@ -46,6 +46,8 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', 'gds', vim.lsp.buf.document_symbol, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', 'gdh', vim.lsp.buf.document_highlight, bufopts)
+  vim.keymap.set('n', 'gch', vim.lsp.buf.clear_references, bufopts)
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -57,7 +59,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function()
-    vim.lsp.buf.format { async = true }
+    vim.lsp.buf.format { async = false }
   end, bufopts)
 end
 
@@ -130,6 +132,8 @@ lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+-- TFlint
+lspconfig.tflint.setup{}
 
 -- Python
 lspconfig.pylsp.setup {
