@@ -29,8 +29,3 @@ set(map, "<Leader>q", ":NERDTreeToggle<cr>")
 -- Git shortcuts
 set("n", "<Leader>gb", ":GitBlameToggle<cr>")
 set("n", "<Leader>gbr", ":GitBlameOpenFileURL<cr>")
-
--- vim-test plugin shortcuts
-set("n", "<Leader>tn", ":TestNearest<cr>")
-set("n", "<Leader>tl", ":TestLast<cr>")
-set("n", "<Leader>tf", ":TestFile<cr>")
