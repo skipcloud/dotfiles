@@ -62,7 +62,9 @@ cmd("Plug 'hrsh7th/cmp-buffer'")
 cmd("Plug 'hrsh7th/cmp-path'")
 cmd("Plug 'hrsh7th/cmp-cmdline'")
 cmd("Plug 'hrsh7th/nvim-cmp'")
+cmd("Plug 'hrsh7th/cmp-nvim-lua'")
 cmd("Plug 'quangnguyen30192/cmp-nvim-ultisnips'")
+cmd("Plug 'onsails/lspkind.nvim'")
 
 -- indent markers
 cmd("Plug 'lukas-reineke/indent-blankline.nvim'")
@@ -81,6 +83,9 @@ cmd("Plug 'honza/vim-snippets'")
 cmd("Plug 'f-person/git-blame.nvim'")
 
 -- And the rest...
+
+-- Terraform
+cmd("Plug 'hashivim/vim-terraform'")
 
 -- stop repeating keys
 cmd("Plug 'takac/vim-hardtime'")
@@ -146,13 +151,11 @@ require 'nvim-treesitter.configs'.setup {
   -- highlight module
   highlight = {
     -- `false` will disable the whole extension
-    enable = true,
+    enable = true ,
 
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- list of language that will be disabled
-    -- disable = { "c", "rust" },
+    -- for some reason highlighting causes vim-commentary
+    -- to stop working in TF files
+    -- disable = { "terraform" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -206,8 +209,23 @@ require("indent_blankline").setup {
 require('treesj').setup {}
 
 local cmp = require 'cmp' or {}
+local lspkind = require 'lspkind'
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None, -- don't preselect a suggestion
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'text',
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+      ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        ultisnips = "[Snips]",
+        nvim_lua = "[Lua]",
+      })
+    }),
+  },
   snippet = {
     expand = function(args)
       vim.fn["UltiSnips#Anon"](args.body)
@@ -230,6 +248,8 @@ cmp.setup({
     -- `group_index` to each source.
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
+  }, {
+    { name = 'nvim_lua' },
   }, {
     { name = 'buffer' },
   }, {
