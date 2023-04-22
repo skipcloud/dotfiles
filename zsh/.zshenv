@@ -7,6 +7,9 @@
 # ENVIRONMENT VARIABLES
 #
 
+# I know this is the default but I'm explicitly setting it
+export XDG_CONFIG_HOME=$HOME/.config
+
 # FZF plugin
 # find all, including hidden, using ripgrep
 export FZF_DEFAULT_COMMAND='rg --hidden --iglob !.git --files-with-matches ""'
@@ -38,7 +41,6 @@ export PATH=$HOME/.tfenv/bin:$PATH
 export code=$HOME/code
 export dots=$HOME/dotfiles
 export roo=$code/roo
-export orderweb=$code/roo/orderweb
 CDPATH=.:$roo
 
 # Path to your oh-my-zsh installation.
