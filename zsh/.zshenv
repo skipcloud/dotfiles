@@ -7,8 +7,18 @@
 # ENVIRONMENT VARIABLES
 #
 
-# I know this is the default but I'm explicitly setting it
+# Explicitly setting these defaults
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$XDG_CONFIG_HOME/local/share
+export XDG_CACHE_HOME=$XDG_CONFIG_HOME/cache
+
+# Zsh Options
+
+export ZDOTDIR=$XDG_CONFIG_HOME/zsh     # Where we want config files to be found
+export HISTFILE=$ZDOTDIR/.zsh_history   # History filepath
+export HISTSIZE=10000                   # Maximum events for internal history
+export SAVEHIST=10000                   # Maximum events in history file
+
 
 # FZF plugin
 # find all, including hidden, using ripgrep
@@ -23,6 +33,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 export NVM_DIR=$HOME/.nvm
 export RI="--format ansi --width 70"
 export EDITOR=nvim
+export VISUAL=nvim
 export GPG_TTY=$(tty)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -41,7 +52,11 @@ export PATH=$HOME/.tfenv/bin:$PATH
 export code=$HOME/code
 export dots=$HOME/dotfiles
 export roo=$code/roo
-CDPATH=.:$roo
+CDPATH=:$roo
+
+##
+# Oh My Zsh set up
+#
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -51,7 +66,9 @@ export ZSH_TMUX_AUTOSTART=true
 # Themes
 # ZSH_THEME="minimal"
 # ZSH_THEME="clean"
-ZSH_THEME="af-magic"
+# ZSH_THEME="af-magic"
+ZSH_THEME=re5et
+# ZSH_THEME=daveverwer
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
