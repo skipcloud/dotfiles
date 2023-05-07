@@ -6,9 +6,7 @@
 # oh-my-zsh plugins
 plugins=(
   aws
-  colored-man-pages
   encode64
-  git
   golang
   rails
   rake

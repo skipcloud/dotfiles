@@ -29,20 +29,20 @@ export GOPATH=$HOME/go
 export GOPRIVATE=github.com/deliveroo
 
 # Misc
+export EDITOR=nvim
+export VISUAL=nvim
+export MANPAGER='nvim +Man!'
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig
 export NVM_DIR=$HOME/.nvm
 export RI="--format ansi --width 70"
-export EDITOR=nvim
-export VISUAL=nvim
 export GPG_TTY=$(tty)
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
 # Build PATH
-export PATH=/usr/local/opt/gettext/bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/usr/local/bin
+export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$PATH:$HOME/.rbenv/plugins/ruby-build/bin
 export PATH=$PATH:$HOME/.rbenv/bin
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/usr/local/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
