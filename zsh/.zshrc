@@ -56,5 +56,11 @@ complete -C '/usr/local/bin/aws_completer' aws
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Source/set up some zsh-users additions
+source $HOME/src/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # zsh-users/zsh-syntax-highlighting
+fpath=($HOME/src/zsh-completions/src $fpath)			     # zsh-users/zsh-completions
+
+
+
 # word of the day
 wod
