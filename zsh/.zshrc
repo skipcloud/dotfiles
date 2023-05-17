@@ -47,10 +47,6 @@ if  type pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 
-# completion init
-autoload -U compinit # find and load the compinit function
-compinit -i          # call the function
-
 # AWS CLI completion
 complete -C '/usr/local/bin/aws_completer' aws
 

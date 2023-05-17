@@ -1,0 +1,12 @@
+#! /bin/env zsh
+# comic() opens a random comic in default browser
+
+local urls=(
+'https://c.xkcd.com/random/comic/'
+'https://pbfcomics.com/random'
+'https://www.buttersafe.com/random'
+'http://www.jspowerhour.com/random-comic'
+'https://abstrusegoose.com/pseudorandom.php'
+)
+
+xdg-open ${urls[RANDOM % ${#urls}]} 

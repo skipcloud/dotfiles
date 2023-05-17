@@ -31,7 +31,7 @@ alias gdc='git diff --cached'
 alias gfa='git fetch --all --prune'
 alias gfrbm='git fetch --prune origin $(git_main_branch):$(git_main_branch) && git rebase origin/$(git_main_branch)'
 # pull
-alias gl='git pull'
+alias gl='git pull --prune'
 # switch
 alias gsw='git switch'
 alias gswc='git switch -c'

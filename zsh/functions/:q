@@ -1,0 +1,4 @@
+#! /bin/env zsh
+# Trying to exit the shell using vim muscle memory
+# so just do the right thing
+exit
