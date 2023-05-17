@@ -1,6 +1,7 @@
-#!/bin/bash
-conf_dir=$HOME/.config
-stow_dirs=( "irb" "pry" "tmux" "git")
+#!/bin/zsh
+local conf_dir=$HOME/.config
+local stow_dirs=("irb" "pry" "tmux" "git")
+local xdg_dirs=("nvim" "dlv" "zsh" "tmux")
 
 if ! type stow >/dev/null; then
   echo "stow is not installed, please install and retry" >&2
@@ -9,14 +10,17 @@ fi
 
 for i in "${stow_dirs[@]}"
 do
-  echo "intalling ${i}"
+  echo "Intalling ${i} in \$HOME"
   stow --dotfiles $i
 done
 
+# This is the only one that needs to be toplevel for some reason
+echo "Installing pycodestyle to top level of \$XDG_CONFIG_HOME"
+stow --target $conf_dir pycodestyle
+
 # Install XDG config stuff
-xdg_dirs=("nvim" "dlv" "zsh")
 for dir in ${xdg_dirs[@]} ; do
-	echo "Installing $dir"
+	echo "Installing $dir in \$XDG_CONFIG_HOME"
 	[[ ! -d $conf_dir/$dir ]] && mkdir --parents $conf_dir/$dir
 	stow --target $conf_dir/$dir $dir
 done
@@ -24,6 +28,3 @@ done
 # zshenv must be in the home directory so symlink it
 echo "symlinking zshenv to home directory"
 ln --symbolic --force $conf_dir/zsh/.zshenv $HOME/.zshenv
-
-echo "installing pycodestyle"
-stow --target $conf_dir pycodestyle
