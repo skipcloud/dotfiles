@@ -46,7 +46,7 @@ create("BufWritePre", {
       return
     end
     -- sync is fine
-    vim.lsp.buf.format({ async = false })
+    vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
   end
 })
 
