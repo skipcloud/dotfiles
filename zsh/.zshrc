@@ -20,10 +20,12 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # load my stuff
-source $ZDOTDIR/options.zsh
-source $ZDOTDIR/bindings.zsh
-source $ZDOTDIR/aliases.zsh
-source $ZDOTDIR/functions.zsh
+for file in {options,bindings,aliases,functions,styles}; do
+  source $ZDOTDIR/$file.zsh
+done
+
+# ensure any completion files are findable
+fpath=($ZDOTDIR/completions $fpath)
 
 # add roo ssh key
 ssh-add ~/.ssh/alan.gibson 2&> /dev/null

@@ -35,7 +35,7 @@ alias gl='git pull --prune'
 # switch
 alias gsw='git switch'
 alias gswc='git switch -c'
-alias gswm='git switch main'
+alias gswm='git switch $(git_main_branch)'
 alias gsws='git switch staging'
 alias gswsb='git switch sandbox'
 # log
