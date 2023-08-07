@@ -1,7 +1,7 @@
 #!/bin/zsh
 local conf_dir=$HOME/.config
 local stow_dirs=("irb" "pry" "tmux" "git")
-local xdg_dirs=("nvim" "dlv" "zsh" "tmux")
+local xdg_dirs=("nvim" "dlv" "zsh" "tmux" "rubocop")
 
 if ! type stow >/dev/null; then
   echo "stow is not installed, please install and retry" >&2
