@@ -1,4 +1,4 @@
-install:
+install: install-others
 	./install-dotfiles
 install-others:
 	./other/install-others
