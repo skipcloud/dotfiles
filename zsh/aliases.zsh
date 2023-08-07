@@ -58,7 +58,7 @@ alias grba='git rebase --abort'
 alias grbc='git rebase --continue'
 alias grbim='git rebase -i origin/$(git_main_branch)'
 # reset
-alias grs='git reset --soft'
+alias grs="git reset"
 alias grsh='git reset --hard'
 # status
 alias gst="git status --short --branch"
