@@ -105,6 +105,13 @@ lspconfig.solargraph.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "bundle", "exec", "solargraph", "stdio" }
+
+  -- The following can be used outside of projects,
+  -- like when inspecting Gems. You might need to update
+  -- the root_dir pattern though.
+  --
+  -- cmd = { "solargraph", "stdio" },
+  -- root_dir = lspconfig.util.root_pattern('CHANGELOG.md')
 }
 
 -- Typescript
