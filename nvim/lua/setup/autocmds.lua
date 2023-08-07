@@ -35,6 +35,20 @@ create("BufWritePre", {
   callback = M.TrimWhiteSpace
 })
 
+-- Default buffer options
+create("BufReadPre", {
+  group = my_group,
+  pattern = "*",
+  callback = function()
+    local bo = vim.bo
+    -- Buffer options
+    bo.softtabstop = 2
+    bo.expandtab = true
+    bo.shiftwidth = 2
+    bo.undofile = true
+end
+})
+
 -- Format on save if there is an LSP Server set up
 create("BufWritePre", {
   group = my_group,

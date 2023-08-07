@@ -1,7 +1,6 @@
 local o = vim.o
 local opt = vim.opt -- convenient interface for interacting with lists/maps
 local wo = vim.wo
-local bo = vim.bo
 
 vim.g.python3_host_prog = "/home/skip/.pyenv/shims/python"
 
@@ -30,8 +29,3 @@ wo.linebreak = true
 wo.wrap = false
 wo.concealcursor = "n" -- mode in which concealed text is revealed
 
--- Buffer options
-bo.softtabstop = 2
-bo.expandtab = true
-bo.shiftwidth = 2
-bo.undofile = true
