@@ -1,0 +1,34 @@
+#! /bin/env bash
+
+# The file containing the commit log message
+commit_file=$1
+# Can be: "message"  if -m or -F were given
+#         "template" if -t is given or commit.template is set
+#         "merge"    if it's a merge commit or .git/MERGE_MSG exists
+#         "squash"   if .git/SQUASH_MSG exists
+#         "commit"   if -c, -C, or --amend were given, then $3 will contain the object
+commit_src=$2
+
+case $commit_src in
+  # These messages should already contain the ticket number
+  # if this hook as been used during development so exit and
+  # be on our merry way
+  merge | squash | commit )
+    exit
+    ;;
+esac
+
+jira_regex="^[[:alpha:]]{2,}-[[:digit:]]+"
+ticket_num=$(git rev-parse --abbrev-ref HEAD | grep --only-matching --extended-regexp $jira_regex | tr '[:lower:]' '[:upper:]' )
+
+[ -z "$ticket_num" ] && exit
+
+export text=$(cat <<EOF
+
+
+Ticket number $ticket_num
+https://deliveroo.atlassian.net/browse/$ticket_num
+EOF
+)
+
+echo "$(awk 'NR==1 { print $0 ENVIRON["text"] }; NR!=1{ print }' <(cat $commit_file))" > $commit_file
