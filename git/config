@@ -24,7 +24,7 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [init]
-	templatedir = ~/.git_template
+	templatedir = /home/skip/.config/git/hooks
 	defaultBranch = main
 [rebase]
 	autoSquash = true
