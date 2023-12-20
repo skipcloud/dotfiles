@@ -1,5 +1,5 @@
 #!/bin/zsh
-local conf_dir=$HOME/.config
+local conf_dir=$XDG_CONFIG_HOME
 local stow_dirs=("irb" "tmux")
 local xdg_dirs=("nvim" "dlv" "zsh" "tmux" "rubocop" "git" "pry")
 
@@ -26,5 +26,6 @@ for dir in ${xdg_dirs[@]} ; do
 done
 
 # zshenv must be in the home directory so symlink it
+# TODO: consider setting ZDOTDIR in the systemwide zshenv
 echo "symlinking zshenv to home directory"
 ln --symbolic --force $conf_dir/zsh/.zshenv $HOME/.zshenv
