@@ -104,14 +104,8 @@ lspconfig.lua_ls.setup {
 lspconfig.solargraph.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "bundle", "exec", "solargraph", "stdio" }
-
-  -- The following can be used outside of projects,
-  -- like when inspecting Gems. You might need to update
-  -- the root_dir pattern though.
-  --
-  -- cmd = { "solargraph", "stdio" },
-  -- root_dir = lspconfig.util.root_pattern('CHANGELOG.md')
+  cmd = { "solargraph-wrapper", "stdio" },
+  root_dir = lspconfig.util.root_pattern('CHANGELOG.md', 'Gemfile')
 }
 
 -- Typescript
@@ -138,7 +132,13 @@ lspconfig.cssls.setup {
 lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    terraform = {
+      timeout = 30
+    }
+  }
 }
+
 -- TFlint
 lspconfig.tflint.setup{}
 
@@ -163,4 +163,11 @@ lspconfig.gopls.setup {
       gofumpt = true,
     }
   }
+}
+
+-- Go linter
+lspconfig.golangci_lint_ls.setup{
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = { command = {'golangci-lint-wrapper', 'run', '--out-format', 'json'} },
 }

@@ -35,11 +35,6 @@ vim.g.hardtime_default_on = true
 vim.g.hardtime_ignore_buffer_patterns = { "NERD.*" }
 vim.g.hardtime_ignore_quickfix = true
 
-vim.g.indent_blankline_char = "╷"
-vim.g.indent_blankline_char_blankline = ""
-vim.g.indent_blankline_use_treesitter = true
-vim.g.indent_blankline_show_first_indent_level = false
-
 vim.g.gitblame_enabled = false
 
 --[[
@@ -201,12 +196,15 @@ require 'nvim-treesitter.configs'.setup {
   }
 }
 
-require("indent_blankline").setup {
-  show_current_context = false,
-  show_current_context_start = false,
-}
+require("ibl").setup {}
 
-require('treesj').setup {}
+require('treesj').setup {
+      -- Use default keymaps
+      -- (<space>m - toggle, <space>j - join, <space>s - split)
+      -- only putting it here because I keep forgetting what the
+      -- default mapping is, then I forget where to find the docs
+      use_default_keymaps = true,
+}
 
 local cmp = require 'cmp' or {}
 local lspkind = require 'lspkind'

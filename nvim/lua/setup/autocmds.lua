@@ -56,11 +56,11 @@ create("BufWritePre", {
   callback = function(ev)
     -- TODO: clean this up
     local ft = vim.filetype.match({ buf = ev.buf })
-    if ft == "go" or ft == "lua" then
+    if ft == "go" or ft == "lua" or ft == "tf" then
       return
     end
     -- sync is fine
-    vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+    vim.lsp.buf.format({ async = false, timeout_ms = 30000 })
   end
 })
 

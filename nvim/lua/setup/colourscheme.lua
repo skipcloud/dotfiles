@@ -16,9 +16,9 @@ vim.g.gruvbox_contrast_light = "medium"
 -- colorscheme nightfox
 -- vim.cmd "colorscheme dayfox"
 -- vim.cmd "colorscheme dawnfox"
--- colorscheme duskfox
+vim.cmd "colorscheme duskfox"
 -- colorscheme nordfox
-vim.cmd "colorscheme carbonfox"
+-- vim.cmd "colorscheme carbonfox"
 
 ---- Dark and Light themes
 -- -----------------------
