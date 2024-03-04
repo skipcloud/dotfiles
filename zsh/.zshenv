@@ -40,7 +40,7 @@ export GPG_TTY=$(tty)
 export PYENV_ROOT="$HOME/.pyenv"
 
 # Build PATH
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/usr/local/bin
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$PATH:$HOME/.rbenv/plugins/ruby-build/bin
 export PATH=$PATH:$HOME/.rbenv/bin

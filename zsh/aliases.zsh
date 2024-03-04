@@ -11,6 +11,8 @@ alias zshrc='vim $ZDOTDIR/.zshrc'
 alias zshenv='vim $ZDOTDIR/.zshenv'
 
 alias saml-gsts='command gsts'
+# Show available clusters - put this in your bash/zsh profile
+alias eks-ls="aws eks list-clusters --region eu-west-1 | jq '.clusters[]'; ; echo 'To set kubeconfig run eks <cluster_name>'"
 
 # Git
 # add

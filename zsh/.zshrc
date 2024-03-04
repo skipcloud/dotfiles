@@ -16,6 +16,9 @@ plugins=(
   tmux
 )
 
+# ensure any completion files are findable
+fpath=($ZDOTDIR/completions $fpath)
+
 # load oh-my-zsh here so I can overwrite things after the fact
 source $ZSH/oh-my-zsh.sh
 
@@ -23,9 +26,6 @@ source $ZSH/oh-my-zsh.sh
 for file in {options,bindings,aliases,functions,styles}; do
   source $ZDOTDIR/$file.zsh
 done
-
-# ensure any completion files are findable
-fpath=($ZDOTDIR/completions $fpath)
 
 # add roo ssh key
 ssh-add ~/.ssh/alan.gibson 2&> /dev/null
