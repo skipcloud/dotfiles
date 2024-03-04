@@ -24,7 +24,6 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [init]
-	templatedir = ~/.git_template
 	defaultBranch = main
 [rebase]
 	autoSquash = true
@@ -40,3 +39,6 @@
 	pager = true
 [diff]
 	tool = vimdiff2
+[filter "gofmt"]
+        clean = gofmt
+        smudge = cat
